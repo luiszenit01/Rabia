@@ -1,21 +1,1492 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>RABIA! — Manual Oficial</title>
-<meta http-equiv="refresh" content="0; url=https://muse.ai/s/manual-oficial-rabia-ar6xcdqmoxsxsxy/8gX6lQOnhfD_sjmUdkcM2LLQkaa4vP3w_9HioEriBBk">
-<script>
-  window.location.replace("https://muse.ai/s/manual-oficial-rabia-ar6xcdqmoxsxsxy/8gX6lQOnhfD_sjmUdkcM2LLQkaa4vP3w_9HioEriBBk");
-</script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="dark" />
+<link rel="icon" href="data:," />
+<title>Manual Oficial RABIA!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
 <style>
-  body { background:#0d0d0f; color:#f5f0e6; font-family: system-ui, sans-serif; text-align:center; padding:3rem 1.5rem; }
-  a { color:#ff4fa3; font-weight:700; }
+  :root{
+    --bg:#08080d;
+    --wall:#0e0e16;
+    --panel:#12121e;
+    --panel2:#171726;
+    --ink:#f4f1e8;
+    --muted:#c9c4b8;
+    --pink:#ff2e9a;
+    --pink2:#ff4d6d;
+    --yellow:#ffe600;
+    --yellow2:#ffb800;
+    --green:#2eff6b;
+    --blue:#00cfff;
+    --violet:#c77dff;
+    --line:rgba(255,255,255,.14);
+    --radius:18px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{animation:none!important; transition:none!important} }
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:"Barlow", system-ui, sans-serif; font-size:17px; line-height:1.55;
+    background-image:
+      radial-gradient(600px 300px at 8% 0%, rgba(255,46,154,.14), transparent 60%),
+      radial-gradient(700px 340px at 95% 12%, rgba(0,207,255,.10), transparent 60%),
+      radial-gradient(500px 500px at 50% 55%, rgba(255,230,0,.05), transparent 60%),
+      repeating-linear-gradient(0deg, rgba(255,255,255,.025) 0 2px, transparent 2px 64px),
+      repeating-linear-gradient(90deg, rgba(255,255,255,.02) 0 2px, transparent 2px 128px);
+  }
+  a{color:var(--blue)}
+  button, summary{ min-height:44px; }
+  .wrap{max-width:1120px; margin:0 auto; padding:0 18px 64px}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:34px 0 8px; display:grid; grid-template-columns:1fr; gap:28px; align-items:center; max-width:780px}
+  .kicker{
+    display:inline-block; font-weight:800; letter-spacing:.22em; font-size:.78rem; text-transform:uppercase;
+    color:#0a0a0a; background:var(--yellow); padding:6px 12px; border-radius:6px; transform:rotate(-1.2deg);
+    box-shadow:4px 4px 0 var(--pink);
+  }
+  h1{margin:16px 0 4px; line-height:1}
+  .logo-img{
+    display:block; width:min(460px, 100%); height:auto; border-radius:22px;
+    filter:drop-shadow(0 14px 34px rgba(0,0,0,.65)) drop-shadow(0 0 26px rgba(255,46,154,.22));
+  }
+  .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0}
+  .hero-sub{font-size:1.12rem; color:var(--muted); max-width:52ch; margin:10px 0 0}
+  .hero-sub strong{color:var(--ink)}
+  .chips{display:flex; flex-wrap:wrap; gap:10px; margin:20px 0 0}
+  .chip{
+    border:2px solid var(--line); border-radius:999px; padding:8px 14px; font-weight:700; background:rgba(255,255,255,.04);
+    display:inline-flex; gap:8px; align-items:center;
+  }
+  .chip b{font-family:"Barlow", system-ui, sans-serif; font-weight:800; font-size:.92rem}
+  .chip.pink{border-color:var(--pink); color:#ffd7ec} .chip.pink b{color:var(--pink)}
+  .chip.blue{border-color:var(--blue); color:#d3f4ff} .chip.blue b{color:var(--blue)}
+  .chip.green{border-color:var(--green); color:#dcffe6} .chip.green b{color:var(--green)}
+  .chip.yellow{border-color:var(--yellow); color:#fff8bf} .chip.yellow b{color:var(--yellow)}
+  .objective{
+    margin-top:22px; border:2px solid var(--yellow); border-radius:var(--radius); padding:16px 18px;
+    background:linear-gradient(135deg, rgba(255,230,0,.12), rgba(255,184,0,.04));
+  }
+  .objective .lab{font-family:"Barlow", system-ui, sans-serif; font-weight:800; color:var(--yellow); font-size:.95rem; letter-spacing:.04em; display:flex; align-items:center; gap:8px}
+  .objective p{margin:6px 0 0; font-size:1.08rem}
+  .hero-art{display:flex; flex-direction:column; gap:16px; align-items:center}
+  .poster{
+    width:100%; max-width:330px; border-radius:14px; border:3px solid rgba(255,255,255,.2);
+    transform:rotate(1.6deg); box-shadow:0 24px 60px rgba(0,0,0,.65), 0 0 0 6px rgba(255,46,154,.15);
+  }
+  .poster-cap{font-size:.85rem; color:var(--muted); text-align:center; margin:0}
+
+  /* ---------- NAV ---------- */
+  nav.toc{
+    position:sticky; top:0; z-index:20; margin:26px -18px 0; padding:10px 18px;
+    background:rgba(8,8,13,.92); backdrop-filter:blur(8px); border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    transition:transform .34s cubic-bezier(.4,0,.2,1), opacity .25s ease;
+  }
+  /* Al bajar, el índice se esconde para dejar leer; al subir, vuelve completo */
+  nav.toc.toc-hidden{
+    transform:translateY(-110%);
+    opacity:0;
+    pointer-events:none;
+  }
+  nav.toc .row{display:flex; flex-wrap:wrap; gap:8px; max-width:1120px; margin:0 auto; align-items:center}
+  nav.toc a{
+    color:var(--ink); text-decoration:none; font-weight:700; font-size:.92rem; padding:9px 13px; border-radius:999px;
+    border:1.5px solid var(--line); background:rgba(255,255,255,.04); display:inline-flex; align-items:center; min-height:40px;
+  }
+  nav.toc a:hover, nav.toc a:focus-visible{border-color:var(--yellow); color:var(--yellow)}
+  .lang-switch{
+    margin-left:auto; display:inline-flex; border:2px solid var(--yellow); border-radius:999px; overflow:hidden;
+    background:rgba(255,230,0,.06); flex:0 0 auto;
+  }
+  .lang-switch button{
+    font-family:"Barlow", system-ui, sans-serif; font-weight:800; font-size:.85rem; letter-spacing:.06em; padding:9px 16px; min-height:44px;
+    background:transparent; color:var(--yellow); border:0; cursor:pointer;
+  }
+  .lang-switch button[aria-pressed="true"]{background:var(--yellow); color:#0a0a0a}
+  .lang-switch button:focus-visible{outline:2px solid #fff; outline-offset:-2px}
+
+  /* ---------- SECTIONS ---------- */
+  section{margin-top:52px; scroll-margin-top:84px}
+  .sec-head{display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; margin-bottom:6px}
+  .sec-num{
+    font-family:"Barlow", system-ui, sans-serif; font-weight:800; font-size:1rem; color:#0a0a0a; padding:6px 12px; border-radius:8px; transform:rotate(-2deg);
+  }
+  .n-pink{background:var(--pink); box-shadow:3px 3px 0 rgba(255,46,154,.35)}
+  .n-blue{background:var(--blue); box-shadow:3px 3px 0 rgba(0,207,255,.3)}
+  .n-yellow{background:var(--yellow); box-shadow:3px 3px 0 rgba(255,230,0,.3)}
+  .n-green{background:var(--green); box-shadow:3px 3px 0 rgba(46,255,107,.3)}
+  .n-violet{background:var(--violet); box-shadow:3px 3px 0 rgba(199,125,255,.3)}
+  .n-orange{background:var(--yellow2); box-shadow:3px 3px 0 rgba(255,184,0,.3)}
+  h2{font-family:"Barlow", system-ui, sans-serif; font-weight:800; font-size:clamp(1.55rem, 4.5vw, 2.3rem); margin:0; line-height:1.1}
+  .sec-intro{color:var(--muted); max-width:68ch; margin:4px 0 18px}
+  .card{
+    background:var(--panel); border:1.5px solid var(--line); border-radius:var(--radius); padding:20px;
+  }
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+  .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+  ul.tight{margin:8px 0 0; padding-left:20px}
+  ul.tight li{margin:7px 0}
+  ul.tight li::marker{color:var(--pink)}
+  .callout{border-radius:14px; padding:14px 16px; font-weight:600}
+  .callout.warn{background:rgba(255,184,0,.1); border:1.5px dashed var(--yellow2); color:#ffe9a8}
+  .callout.fun{background:rgba(0,207,255,.08); border:1.5px dashed var(--blue); color:#c9efff}
+  .callout strong{color:#fff}
+  h3.mini{font-family:"Barlow", system-ui, sans-serif; font-weight:800; font-size:1rem; margin:0 0 6px; letter-spacing:.02em}
+
+  /* medidor mini */
+  .meter-levels{display:grid; gap:10px; margin-top:10px}
+  .meter-levels .lvl{display:flex; gap:12px; align-items:flex-start; background:var(--panel2); border:1px solid var(--line); border-radius:12px; padding:10px 12px}
+  .lvl .dot{font-family:"Barlow", system-ui, sans-serif; font-weight:800; flex:0 0 auto; width:38px; height:38px; border-radius:50%; display:grid; place-items:center; color:#0a0a0a; font-size:1rem}
+  .d0{background:#e8e2d4}.d1{background:var(--yellow)}.d2{background:var(--pink2); color:#fff}.d3{background:var(--violet); color:#fff}
+  .lvl p{margin:2px 0 0; color:var(--muted)} .lvl p strong{color:var(--ink)}
+
+  /* turn phases */
+  .phases{display:grid; grid-template-columns:repeat(4,1fr); gap:14px}
+  .phase{border-radius:var(--radius); padding:18px; border:2px solid var(--line); background:var(--panel); position:relative}
+  .phase .pnum{font-family:"Barlow", system-ui, sans-serif; font-weight:800; font-size:2rem; line-height:1}
+  .phase h3{font-family:"Barlow", system-ui, sans-serif; font-weight:800; margin:8px 0 6px; font-size:1.05rem}
+  .phase p{margin:0; color:var(--muted); font-size:.97rem}
+  .phase.p1{border-color:var(--blue)} .phase.p1 .pnum{color:var(--blue)}
+  .phase.p2{border-color:var(--green)} .phase.p2 .pnum{color:var(--green)}
+  .phase.p3{border-color:var(--pink)} .phase.p3 .pnum{color:var(--pink)}
+  .phase.p4{border-color:var(--yellow)} .phase.p4 .pnum{color:var(--yellow)}
+
+  /* rabia */
+  .rabia-levels{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+  .rabia-card{border-radius:var(--radius); padding:20px; border:2px solid; background:var(--panel)}
+  .rabia-card .rabia-img{
+    display:block; width:100%; height:auto; aspect-ratio:2/3; object-fit:contain; object-position:center;
+    border-radius:12px; border:2px solid rgba(255,255,255,.22); background:#0b0b12;
+  }
+  .rabia-card h3{font-family:"Barlow", system-ui, sans-serif; font-weight:800; margin:10px 0 2px; font-size:1.05rem}
+  .rabia-card .ability{font-weight:800; font-size:1.08rem}
+  .rabia-card p{color:var(--muted); margin:6px 0 0}
+  .r1{border-color:var(--yellow)} .r1 .ability{color:var(--yellow)}
+  .r2{border-color:var(--pink)} .r2 .ability{color:var(--pink)}
+  .r3{border-color:var(--blue)} .r3 .ability{color:var(--blue)}
+  .tag{display:inline-block; font-size:.75rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.1); border:1px solid var(--line)}
+  .tag.imp{background:rgba(255,46,154,.18); border-color:var(--pink); color:#ffc2de}
+
+  .sim{margin-top:18px; border:2px solid var(--pink); border-radius:var(--radius); padding:20px; background:linear-gradient(160deg, rgba(255,46,154,.08), rgba(0,0,0,0) 55%), var(--panel)}
+  .sim h3{font-family:"Barlow", system-ui, sans-serif; font-weight:800; margin:0 0 4px}
+  .sim .sub{color:var(--muted); margin:0 0 16px}
+  .sim-art{margin:0 auto 16px; max-width:430px; border-radius:14px; overflow:hidden; border:2px solid var(--line); background:#0b0b12}
+  .sim-art img{display:block; width:100%; height:auto; aspect-ratio:2/3; object-fit:contain; object-position:center}
+  .sim-art img[hidden]{display:none}
+  .sim-art-empty{
+    aspect-ratio:2/3; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px;
+    text-align:center; padding:18px; color:var(--muted);
+    background:radial-gradient(420px 200px at 50% 40%, rgba(255,230,0,.07), transparent 65%);
+  }
+  .sim-art-empty .big{font-family:"Barlow", system-ui, sans-serif; font-weight:800; font-size:2.6rem; line-height:1; color:#3d3d4d}
+  .sim-art-empty p{margin:0; font-weight:600; max-width:38ch}
+  .sim-art-cap{
+    display:flex; align-items:center; gap:8px; padding:10px 14px; font-weight:800; font-size:.98rem;
+    background:rgba(255,255,255,.05); border-top:1.5px solid var(--line);
+  }
+  .sim-art-cap .dot{flex:0 0 auto; width:14px; height:14px; border-radius:50%; background:#3d3d4d}
+  .sim-art-cap.c1 .dot{background:var(--yellow); box-shadow:0 0 10px rgba(255,230,0,.7)}
+  .sim-art-cap.c2 .dot{background:var(--pink2); box-shadow:0 0 10px rgba(255,77,109,.7)}
+  .sim-art-cap.c3 .dot{background:var(--violet); box-shadow:0 0 10px rgba(199,125,255,.75)}
+  .sim-meter{display:flex; align-items:center; gap:14px; flex-wrap:wrap}
+  .sim-eyes{display:flex; gap:8px}
+  .sim-eye{width:52px; height:52px; border-radius:50%; border:2.5px solid var(--line); display:grid; place-items:center; font-family:"Barlow", system-ui, sans-serif; font-weight:800; font-size:1.15rem; color:var(--muted); background:#0b0b12; transition:all .25s}
+  .sim-eye.on1{background:var(--yellow); border-color:var(--yellow); color:#0a0a0a; box-shadow:0 0 18px rgba(255,230,0,.55)}
+  .sim-eye.on2{background:var(--pink2); border-color:var(--pink2); color:#fff; box-shadow:0 0 18px rgba(255,77,109,.6)}
+  .sim-eye.on3{background:var(--violet); border-color:var(--violet); color:#fff; box-shadow:0 0 18px rgba(199,125,255,.65)}
+  .sim-status{font-weight:800; font-size:1.05rem}
+  .sim-btns{display:flex; flex-wrap:wrap; gap:10px; margin-top:16px}
+  .btn{
+    font-family:"Barlow"; font-weight:800; font-size:1rem; border-radius:12px; padding:12px 18px; cursor:pointer;
+    border:2px solid var(--line); background:rgba(255,255,255,.05); color:var(--ink);
+  }
+  .btn:active{transform:translateY(1px)}
+  .btn.primary{background:var(--pink); border-color:var(--pink); color:#fff}
+  .btn.spend{background:var(--yellow); border-color:var(--yellow); color:#0a0a0a}
+  .btn:disabled{opacity:.4; cursor:not-allowed}
+  .sim-msg{margin-top:14px; min-height:1.5em; font-weight:600; color:#ffd7ec}
+  .sim-msg:empty{display:none}
+  .sim-msg.box{background:rgba(0,0,0,.35); border:1.5px dashed var(--pink); border-radius:12px; padding:12px 14px}
+
+  /* terms */
+  .terms{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+  .term{border-radius:var(--radius); padding:18px 20px; background:var(--panel); border-left:6px solid var(--line)}
+  .term h3{font-family:"Barlow", system-ui, sans-serif; font-weight:800; font-size:1.02rem; margin:0 0 6px}
+  .term p{margin:0; color:var(--muted)}
+  .term.t-basic{border-left-color:var(--green)} .term.t-basic h3{color:var(--green)}
+  .term.t-perf{border-left-color:var(--blue)} .term.t-perf h3{color:var(--blue)}
+  .term.t-imp{border-left-color:var(--pink)} .term.t-imp h3{color:var(--pink)}
+  .term.t-glob{border-left-color:var(--yellow)} .term.t-glob h3{color:var(--yellow)}
+
+  /* glossary */
+  .gloss-tools{display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin-bottom:18px}
+  .filter-btn{
+    font-family:"Barlow"; font-weight:800; font-size:.95rem; padding:10px 16px; border-radius:999px; cursor:pointer;
+    background:rgba(255,255,255,.04); color:var(--ink); border:2px solid var(--line); min-height:44px;
+  }
+  .filter-btn.active{color:#0a0a0a}
+  .filter-btn[data-filter="all"].active{background:#fff; border-color:#fff}
+  .filter-btn[data-filter="heroe"].active{background:var(--green); border-color:var(--green)}
+  .filter-btn[data-filter="amenaza"].active{background:var(--pink2); border-color:var(--pink2); color:#fff}
+  .filter-btn[data-filter="legendario"].active{background:var(--violet); border-color:var(--violet); color:#fff}
+  .filter-btn[data-filter="apoyo"].active{background:var(--blue); border-color:var(--blue)}
+  .filter-btn[data-filter="trampa"].active{background:var(--yellow2); border-color:var(--yellow2)}
+  .search{
+    flex:1 1 200px; min-height:44px; border-radius:12px; border:2px solid var(--line); background:#0b0b12; color:var(--ink);
+    padding:10px 14px; font-family:"Barlow"; font-size:1rem;
+  }
+  .search:focus{outline:none; border-color:var(--blue)}
+  .type-block{margin-top:26px}
+  .type-head{display:flex; align-items:center; gap:12px; flex-wrap:wrap; border-bottom:3px solid; padding-bottom:10px}
+  .type-head h3{font-family:"Barlow", system-ui, sans-serif; font-weight:800; font-size:1.25rem; margin:0}
+  .type-head .count{font-family:"Barlow", system-ui, sans-serif; font-weight:800; font-size:.85rem; padding:4px 10px; border-radius:999px; color:#0a0a0a}
+  .type-head p{flex-basis:100%; margin:2px 0 0; color:var(--muted)}
+  .th-heroe{border-color:var(--green)} .th-heroe h3{color:var(--green)} .th-heroe .count{background:var(--green)}
+  .th-amenaza{border-color:var(--pink2)} .th-amenaza h3{color:var(--pink2)} .th-amenaza .count{background:var(--pink2); color:#fff}
+  .th-legendario{border-color:var(--violet)} .th-legendario h3{color:var(--violet)} .th-legendario .count{background:var(--violet); color:#fff}
+  .th-apoyo{border-color:var(--blue)} .th-apoyo h3{color:var(--blue)} .th-apoyo .count{background:var(--blue)}
+  .th-trampa{border-color:var(--yellow2)} .th-trampa h3{color:var(--yellow2)} .th-trampa .count{background:var(--yellow2)}
+  .cards-list{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:14px}
+  .gcard{background:var(--panel); border:1.5px solid var(--line); border-radius:14px; padding:14px 16px; display:flex; gap:14px}
+  .gcard .copies{
+    flex:0 0 auto; align-self:flex-start; font-family:"Barlow", system-ui, sans-serif; font-weight:800; font-size:.95rem; min-width:46px; text-align:center;
+    padding:7px 6px; border-radius:10px; color:#0a0a0a;
+  }
+  .c-heroe{background:var(--green)} .c-amenaza{background:var(--pink2); color:#fff} .c-legendario{background:var(--violet); color:#fff}
+  .c-apoyo{background:var(--blue)} .c-trampa{background:var(--yellow2)}
+  .gcard h4{margin:0; font-size:1.06rem; font-weight:800}
+  .gcard p{margin:3px 0 0; color:var(--muted); font-size:.96rem}
+  .gcard .kw{font-weight:800; color:var(--ink)}
+  .no-results{display:none; border:1.5px dashed var(--line); border-radius:14px; padding:20px; text-align:center; color:var(--muted); font-weight:600; margin-top:16px}
+  .split{display:grid; grid-template-columns:.85fr 1.15fr; gap:22px; align-items:start}
+  .split figure{margin:0}
+  .split figure img{width:100%; border-radius:14px; border:3px solid rgba(255,255,255,.18); transform:rotate(-1.4deg); box-shadow:0 18px 44px rgba(0,0,0,.6)}
+  .split figcaption{color:var(--muted); font-size:.88rem; margin-top:10px; text-align:center}
+
+  /* cómo leer una carta: carta anotada */
+  .howto{background:var(--panel); border:1.5px solid var(--line); border-radius:var(--radius); padding:18px}
+  .howto-title{font-family:"Barlow", system-ui, sans-serif; font-weight:800; font-size:1.3rem; margin:0; color:var(--yellow); line-height:1.15}
+  .howto-intro{color:var(--muted); margin:6px 0 14px; font-size:.98rem}
+  .howto-visual{position:relative}
+  .howto-visual img{display:block; width:100%; height:auto; border-radius:12px; border:2.5px solid rgba(255,255,255,.18)}
+  .zone{position:absolute; border:2px dashed rgba(255,230,0,.95); pointer-events:none; z-index:1}
+  .zone-frame{left:6.9%; right:7%; top:4.9%; bottom:4.9%; border-radius:12px}
+  .zone-symbol{left:87.9%; top:8.95%; width:9.5%; aspect-ratio:1; border-radius:50%; transform:translate(-50%,-50%)}
+  .zone-name{left:12.4%; right:17.5%; top:78.5%; height:5.4%; border-radius:6px}
+  .zone-effect{left:12.4%; right:17.5%; top:84.7%; height:6.6%; border-radius:6px}
+  .pin{
+    position:absolute; z-index:2; width:27px; height:27px; border-radius:50%;
+    background:var(--yellow); color:#0a0a0a; border:2px solid #0a0a0a;
+    box-shadow:0 0 0 2px var(--yellow), 0 6px 14px rgba(0,0,0,.55);
+    font-family:"Barlow", system-ui, sans-serif; font-weight:800; font-size:.92rem;
+    display:grid; place-items:center; transform:translate(-50%,-50%);
+  }
+  .pin1{left:6.9%; top:4.9%}
+  .pin2{left:87.9%; top:4.2%}
+  .pin3{left:12.4%; top:78.5%}
+  .pin4{left:12.4%; top:84.7%}
+  .howto-list{list-style:none; margin:16px 0 0; padding:0; display:grid; gap:12px}
+  .howto-list li{display:flex; gap:11px; align-items:flex-start}
+  .howto-num{flex:0 0 auto; width:27px; height:27px; border-radius:50%; background:var(--yellow); color:#0a0a0a; font-weight:800; display:grid; place-items:center; font-size:.92rem; margin-top:1px}
+  .howto-list p{margin:0; color:var(--muted); font-size:.97rem}
+  .howto-list p strong{color:var(--ink)}
+  .howto-key{margin-top:18px; border-top:1.5px dashed var(--line); padding-top:14px}
+  .howto-key h4{margin:0 0 10px; font-family:"Barlow", system-ui, sans-serif; font-weight:800; font-size:.98rem}
+  .key-list{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:8px 12px}
+  .key-item{display:flex; align-items:center; gap:9px; font-weight:700; font-size:.95rem}
+  .key-swatch{flex:0 0 auto; width:24px; height:32px; border:3px solid; border-radius:5px; background:rgba(255,255,255,.06)}
+
+  /* leyenda de símbolos */
+  .howto-syms{margin-top:18px; border-top:1.5px dashed var(--line); padding-top:14px}
+  .howto-syms h4{margin:0 0 4px; font-family:"Barlow", system-ui, sans-serif; font-weight:800; font-size:.98rem}
+  .howto-syms .syms-note{margin:0 0 12px; color:var(--muted); font-size:.95rem}
+  .sym-list{list-style:none; margin:0; padding:0; display:grid; gap:10px}
+  .sym-item{display:flex; gap:12px; align-items:flex-start; background:var(--panel2); border:1px solid var(--line); border-radius:12px; padding:10px 12px}
+  .sym-item img{flex:0 0 auto; width:46px; height:46px; border-radius:9px; border:1.5px solid var(--line); display:block}
+  .sym-item p{margin:0; color:var(--muted); font-size:.95rem}
+  .sym-item p strong{color:var(--ink); font-size:1rem}
+
+  /* faq */
+  .faq details{background:var(--panel); border:1.5px solid var(--line); border-radius:14px; margin-bottom:10px; overflow:hidden}
+  .faq summary{
+    cursor:pointer; list-style:none; padding:14px 18px; font-weight:800; display:flex; gap:12px; align-items:center;
+  }
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary .qnum{font-family:"Barlow", system-ui, sans-serif; font-weight:800; font-size:.85rem; color:#0a0a0a; background:var(--blue); padding:4px 9px; border-radius:7px; flex:0 0 auto}
+  .faq summary:hover{color:var(--yellow)}
+  .faq .ans{padding:0 18px 16px 18px; color:var(--muted)}
+  .faq .ans strong{color:var(--ink)}
+  .faq .ans .punch{color:#ffd7ec; font-weight:700}
+
+  /* pósteres para imprimir */
+  .poster-grid{display:grid; grid-template-columns:1fr 1fr; gap:20px}
+  .poster-card{background:var(--panel); border:1.5px solid var(--line); border-radius:var(--radius); padding:18px; display:flex; flex-direction:column; gap:14px}
+  .poster-card h3{font-family:"Barlow", system-ui, sans-serif; font-weight:800; font-size:1.08rem; margin:0; display:flex; align-items:center; gap:10px; flex-wrap:wrap}
+  .poster-card h3 .lang-tag{font-family:"Barlow"; font-weight:800; font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; padding:4px 10px; border-radius:999px; color:#0a0a0a}
+  .poster-thumb{border:0; padding:0; background:none; cursor:zoom-in; border-radius:12px; line-height:0}
+  .poster-thumb img{width:100%; height:auto; aspect-ratio:2144/3840; background:#0b0b12; border-radius:12px; border:2.5px solid rgba(255,255,255,.18); display:block}
+  .poster-thumb:focus-visible{outline:3px solid var(--yellow); outline-offset:3px}
+  .poster-actions{display:flex; flex-wrap:wrap; gap:10px; margin-top:auto}
+  .poster-actions .btn{flex:1 1 150px; text-align:center; text-decoration:none; display:inline-flex; align-items:center; justify-content:center}
+  .poster-note{color:var(--muted); margin:14px 0 0; font-size:.95rem}
+
+  /* visor grande del póster (en página, sin pantalla completa nativa) */
+  .lightbox{
+    position:fixed; inset:0; z-index:200; background:rgba(4,4,8,.97);
+    display:none; flex-direction:column; height:100vh; height:100dvh;
+  }
+  .lightbox[hidden]{display:none!important}
+  .lightbox.open{display:flex}
+  .lightbox-bar{
+    flex:0 0 auto; position:relative; z-index:2;
+    display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+    padding:12px 16px; border-bottom:1px solid var(--line); background:#0b0b12;
+  }
+  .lightbox-bar .lb-title{font-family:"Barlow", system-ui, sans-serif; font-weight:800; font-size:1rem; margin:0; flex:1 1 auto}
+  .lightbox-bar .lb-hint{flex-basis:100%; margin:0; font-size:.85rem; color:var(--muted)}
+  .lb-close-btn{
+    flex:0 0 auto; background:var(--pink)!important; border-color:var(--pink)!important; color:#fff!important;
+    font-size:1.05rem; padding:12px 20px; min-width:56px; min-height:52px;
+    box-shadow:0 4px 18px rgba(255,46,154,.45);
+  }
+  .lightbox-scroll{flex:1 1 auto; overflow:auto; -webkit-overflow-scrolling:touch; display:flex; align-items:flex-start; justify-content:center; padding:18px 14px 28px; cursor:zoom-out}
+  .lightbox-scroll img{max-width:min(860px,100%); width:100%; height:auto; border-radius:10px; box-shadow:0 24px 60px rgba(0,0,0,.7); cursor:default}
+
+  /* área de impresión: solo visible al imprimir */
+  #printArea{display:none}
+  @media print{
+    body{background:#fff}
+    .wrap, .lightbox{display:none!important}
+    #printArea{display:block!important}
+    #printArea img{width:100%; height:auto; display:block; page-break-after:always; break-after:page}
+    #printArea img:last-child{page-break-after:auto; break-after:auto}
+  }
+
+  footer{margin-top:64px; text-align:center}
+  footer .slogan{
+    font-family:"Barlow", system-ui, sans-serif; font-weight:800; font-size:clamp(1.5rem, 6vw, 2.6rem); line-height:1.15; margin:0;
+  }
+  footer .slogan .s1{color:var(--yellow); text-shadow:2px 2px 0 #7a5b00}
+  footer .slogan .s2{color:var(--pink); text-shadow:2px 2px 0 #7a0b45}
+  footer p{color:var(--muted); margin:12px 0 0; font-size:.92rem}
+
+  @media (max-width:900px){
+    .hero{grid-template-columns:1fr}
+    .poster{max-width:250px}
+    .phases{grid-template-columns:1fr 1fr}
+    .rabia-levels{grid-template-columns:1fr}
+    .grid2,.grid3,.terms,.cards-list,.split,.poster-grid{grid-template-columns:1fr}
+    .lang-switch{margin-left:0}
+  }
+  @media (max-width:520px){
+    .phases{grid-template-columns:1fr}
+    body{font-size:16px}
+  }
 </style>
 </head>
 <body>
-  <h1>RABIA!</h1>
-  <p>Abriendo el manual oficial…</p>
-  <p>Si no te lleva solo, toca aquí: <a href="https://muse.ai/s/manual-oficial-rabia-ar6xcdqmoxsxsxy/8gX6lQOnhfD_sjmUdkcM2LLQkaa4vP3w_9HioEriBBk">Manual Oficial RABIA!</a></p>
+<div class="wrap">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div>
+      <span class="kicker" data-i18n="kicker">Manual Oficial</span>
+      <h1>
+        <span class="sr-only">RABIA!</span>
+        <img class="logo-img" src="img01.jpg" alt="Logo oficial de RABIA!: las letras RABIA! en graffiti neón rosa, amarillo, verde y azul, con un ojo decorado debajo, sobre fondo negro" />
+      </h1>
+      <p class="hero-sub" data-i18n="heroSub">El juego de cartas fronterizo: héroes de barrio, amenazas de leyenda y mucha, <strong>mucha rabia</strong>. Aquí se viene a repartir trancazos, a perder con dignidad (o sin ella) y a cobrar venganza con una sonrisota. Baja héroes, aguanta vara y sé el primero en dominar la mesa.</p>
+      <div class="chips">
+        <span class="chip pink"><b data-i18n="chipPlayers">Jugadores</b> <span data-i18n="chipPlayersVal">2 a 6</span></span>
+        <span class="chip blue"><b data-i18n="chipDuration">Duración</b> 15 – 25 min</span>
+        <span class="chip green"><b data-i18n="chipDeck">Mazo</b> <span data-i18n="chipDeckVal">90 cartas</span></span>
+        <span class="chip yellow"><b data-i18n="chipWin">Para ganar</b> <span data-i18n="chipWinVal">3 Héroes vivos</span></span>
+      </div>
+      <div class="objective">
+        <span class="lab" data-i18n="objLab">◎ Objetivo</span>
+        <p data-i18n="objText">Sé el primero en tener <strong>3 Héroes vivos en tu mesa</strong>. Si lo logras en cualquier momento, <strong>ganas inmediatamente</strong>.</p>
+      </div>
+    </div>
+  </header>
+
+  <nav class="toc" data-i18n-aria="tocAria" aria-label="Índice del manual">
+    <div class="row">
+      <a href="#preparacion" data-i18n="nav1">1 · Preparación</a>
+      <a href="#turno" data-i18n="nav2">2 · El turno</a>
+      <a href="#rabia" data-i18n="nav3">3 · Sistema de Rabia</a>
+      <a href="#terminos" data-i18n="nav4">4 · Términos</a>
+      <a href="#glosario" data-i18n="nav5">5 · Glosario de cartas</a>
+      <a href="#faq" data-i18n="nav6">6 · FAQ</a>
+      <a href="#poster-imprimir" data-i18n="nav7">7 · Póster para imprimir</a>
+      <span class="lang-switch" role="group" aria-label="Idioma / Language">
+        <button type="button" id="langEs" aria-pressed="true">ES</button>
+        <button type="button" id="langEn" aria-pressed="false">EN</button>
+      </span>
+    </div>
+  </nav>
+
+  <!-- 1 PREPARACIÓN -->
+  <section id="preparacion">
+    <div class="sec-head"><span class="sec-num n-pink">1</span><h2 data-i18n="s1Title">Preparación</h2></div>
+    <p class="sec-intro" data-i18n="s1Intro">Cinco minutos de acomodo y a repartir trancazos. Peléense por el lugar con respaldo si quieren, pero por las reglas no: esto es todo lo que necesitas antes de la primera mano.</p>
+    <div class="grid2">
+      <div class="card">
+        <h3 class="mini" style="color:var(--pink)" data-i18n="s1Card1Title">El mazo y El Basurero</h3>
+        <ul class="tight">
+          <li data-i18n="s1L1">Baraja las <strong>90 cartas</strong> y colócalas boca abajo: ese es el mazo.</li>
+          <li data-i18n="s1L2">Designa un espacio para <strong>El Basurero</strong>, donde van las cartas usadas, las descartadas y los Héroes destruidos.</li>
+          <li data-i18n="s1L3">Reparte <strong>5 cartas</strong> a cada jugador.</li>
+        </ul>
+        <div class="callout warn" style="margin-top:14px" data-i18n="s1Trap">
+          <strong>¿Trampa en la mano inicial?</strong> No se activa. Si alguien recibe una Trampa al repartir, debe revelarla, apartarla, robar un reemplazo, devolver la Trampa al mazo y barajar.
+        </div>
+      </div>
+      <div class="card">
+        <h3 class="mini" style="color:var(--blue)" data-i18n="s1Card2Title">Tu Medidor de Rabia</h3>
+        <p style="margin:0;color:var(--muted)" data-i18n="s1MeterIntro">Cada jugador recibe una carta de Medidor de Rabia de doble cara y la coloca en posición de <strong style="color:var(--ink)">Nivel 0</strong>. La posición de la carta es el nivel:</p>
+        <div class="meter-levels">
+          <div class="lvl"><span class="dot d0">0</span><p data-i18n="s1Lvl0"><strong>Nivel 0 —</strong> coloca la carta en horizontal.</p></div>
+          <div class="lvl"><span class="dot d1">1–2</span><p data-i18n="s1Lvl12"><strong>Nivel 1 o 2 —</strong> gira la carta para que el nivel actual apunte hacia los demás jugadores.</p></div>
+          <div class="lvl"><span class="dot d3">3</span><p data-i18n="s1Lvl3"><strong>Nivel 3 —</strong> voltea la carta al reverso. Rabia máxima.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="callout fun" style="margin-top:16px" data-i18n="s1Start">
+      <strong>¿Quién empieza?</strong> Todos tiran un dado y empieza el número <strong>más bajo</strong>. En empate, vuelvan a tirar. Después se juega en sentido horario. <strong>¿Sin dado?</strong> Empieza el jugador más enojón.
+    </div>
+  </section>
+
+  <!-- 2 TURNO -->
+  <section id="turno">
+    <div class="sec-head"><span class="sec-num n-blue">2</span><h2 data-i18n="s2Title">Estructura del turno</h2></div>
+    <p class="sec-intro" data-i18n="s2Intro">Cuando sea tu turno, sigue estas cuatro fases en orden. Sin saltarse pasos, sin hacerse el vivo y sin llorar antes de tiempo: la lloradera oficial va en la fase de Rabia.</p>
+    <div class="phases">
+      <article class="phase p1">
+        <div class="pnum">1</div>
+        <h3 data-i18n="ph1Name">Robo</h3>
+        <p data-i18n="ph1Text">Roba 1 carta. Si es normal, va a tu mano. Si es <strong style="color:#fff">Trampa</strong>, revélala y actívala de inmediato. Puedes usar <em>Fuga en la Rutera</em> para cancelarla.</p>
+      </article>
+      <article class="phase p2">
+        <div class="pnum">2</div>
+        <h3 data-i18n="ph2Name">Acción</h3>
+        <p data-i18n="ph2Text">Juega cualquier cantidad de <strong style="color:#fff">Amenazas, Legendarias y Apoyo/Reacción</strong> si su efecto es válido. Puedes atacar a varios jugadores en el mismo turno. Solo puedes jugar <strong style="color:#fff">1 Héroe por turno</strong>.</p>
+      </article>
+      <article class="phase p3">
+        <div class="pnum">3</div>
+        <h3 data-i18n="ph3Name">Rabia</h3>
+        <p data-i18n="ph3Text">Puedes gastar tu Rabia acumulada para activar un efecto. Consulta la <a href="#rabia">Sección 3: Sistema de Rabia</a>.</p>
+      </article>
+      <article class="phase p4">
+        <div class="pnum">4</div>
+        <h3 data-i18n="ph4Name">Fin</h3>
+        <p data-i18n="ph4Text">Si tienes más de <strong style="color:#fff">7 cartas</strong>, descarta al Basurero hasta quedarte con 7. Si el mazo se acaba, baraja El Basurero para formar un nuevo mazo.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 3 RABIA -->
+  <section id="rabia">
+    <div class="sec-head"><span class="sec-num n-yellow">3</span><h2 data-i18n="s3Title">Sistema de Rabia</h2></div>
+    <p class="sec-intro" data-i18n="s3Intro">La Rabia es el coraje acumulado de ver caer a tus Héroes. Duele perderlos… pero ese coraje se cobra, y se cobra con intereses, como buen préstamo de barrio. Y cada nivel tiene su marca en el muro: Nivel 1, el ojo; Nivel 2, el puño; Nivel 3, la cola larga.</p>
+    <div class="card">
+      <h3 class="mini" style="color:var(--yellow)" data-i18n="s3CardTitle">¿Cómo se gana Rabia?</h3>
+      <ul class="tight">
+        <li data-i18n="s3L1">Ganas <strong>1 Rabia solo cuando un Héroe tuyo en mesa es destruido</strong> y enviado al Basurero.</li>
+        <li data-i18n="s3L2"><strong>NO</strong> ganas Rabia si tu Héroe es robado, movido, intercambiado, devuelto a tu mano o descartado desde tu mano.</li>
+        <li data-i18n="s3L3">El Medidor <strong>no puede pasar de Nivel 3</strong>. Al gastar tu Rabia, el Medidor <strong>vuelve a Nivel 0</strong>.</li>
+      </ul>
+    </div>
+    <div class="rabia-levels" style="margin-top:16px">
+      <article class="rabia-card r1">
+        <img class="rabia-img" src="img02.jpg" width="1080" height="1620" data-i18n-alt="r1ImgAlt" alt="Nivel 1 de Rabia: un ojo turquesa pintado en graffiti neón sobre un muro negro, con el texto LEVEL 1 arriba" loading="lazy" />
+        <h3 data-i18n="r1Lvl">Nivel 1</h3>
+        <div class="ability">Mal de Ojo</div>
+        <p data-i18n="r1Text">Roba <strong style="color:#fff">2 cartas</strong>. El coraje leve también ayuda.</p>
+      </article>
+      <article class="rabia-card r2">
+        <img class="rabia-img" src="img03.jpg" width="1080" height="1620" data-i18n-alt="r2ImgAlt" alt="Nivel 2 de Rabia: un puño cerrado decorado con flores, pintado en graffiti neón sobre un muro negro, con el texto LEVEL 2 abajo" loading="lazy" />
+        <h3 data-i18n="r2Lvl">Nivel 2</h3>
+        <div class="ability">Un Levantón</div>
+        <p data-i18n="r2Text">Destruye <strong style="color:#fff">1 Héroe rival</strong>.</p>
+        <p><span class="tag imp" data-i18n="tagImparable">Imparable</span></p>
+      </article>
+      <article class="rabia-card r3">
+        <img class="rabia-img" src="img04.jpg" width="1080" height="1617" data-i18n-alt="r3ImgAlt" alt="Nivel 3 de Rabia: la cola larga de una rana, amarilla y enrollada en espiral, pintada en graffiti neón sobre un muro negro, con el texto LEVEL 3 arriba" loading="lazy" />
+        <h3 data-i18n="r3Lvl">Nivel 3</h3>
+        <div class="ability">Sana, Sana, Colita de Rana</div>
+        <p data-i18n="r3Text">Revive <strong style="color:#fff">1 Héroe del Basurero</strong> a tu mesa y roba <strong style="color:#fff">2 cartas</strong>. La venganza completa.</p>
+      </article>
+    </div>
+
+    <!-- Simulador -->
+    <div class="sim" data-i18n-aria="simAria" aria-label="Simulador del Medidor de Rabia">
+      <h3 data-i18n="simTitle">Prueba el Medidor</h3>
+      <p class="sub" data-i18n="simSub">Toca los botones como si estuvieras en la mesa: pierde, llora poquito, acumula y cobra. Mira cómo sube — y cómo se gasta — tu Rabia.</p>
+      <figure class="sim-art" id="simArt">
+        <img id="simArtImg" src="img02.jpg" width="1080" height="1620" alt="" hidden />
+        <div class="sim-art-empty" id="simArtEmpty">
+          <span class="big" aria-hidden="true">0</span>
+          <p id="simArtEmptyText">Sin marca todavía: en Nivel 0 el muro está limpio y tú, tranquilo.</p>
+        </div>
+        <figcaption class="sim-art-cap" id="simArtCap"><span class="dot" aria-hidden="true"></span><span id="simArtCapText">Nivel 0 — sin marca</span></figcaption>
+      </figure>
+      <div class="sim-meter">
+        <div class="sim-eyes" aria-hidden="true">
+          <span class="sim-eye" id="eye1">1</span>
+          <span class="sim-eye" id="eye2">2</span>
+          <span class="sim-eye" id="eye3">3</span>
+        </div>
+        <span class="sim-status" id="simStatus">Nivel 0 — tranquilo… por ahora.</span>
+      </div>
+      <div class="sim-btns">
+        <button class="btn primary" id="btnGain" type="button" data-i18n="btnGain">Destruyeron a mi Héroe (+1 Rabia)</button>
+        <button class="btn spend" id="btnSpend" type="button" data-i18n="btnSpend" disabled>Gastar mi Rabia</button>
+        <button class="btn" id="btnReset" type="button" data-i18n="btnReset">Reiniciar</button>
+      </div>
+      <p class="sim-msg" id="simMsg" role="status" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <!-- 4 TÉRMINOS -->
+  <section id="terminos">
+    <div class="sec-head"><span class="sec-num n-green">4</span><h2 data-i18n="s4Title">Términos importantes</h2></div>
+    <p class="sec-intro" data-i18n="s4Intro">Cuatro palabras que deciden partidas. Apréndetelas antes de discutir con la mesa, porque el que no sabe, pierde… y encima le echan carrilla toda la noche.</p>
+    <div class="terms">
+      <article class="term t-basic">
+        <h3 data-i18n="term1Name">Ataque Básico</h3>
+        <p data-i18n="term1Text">El ataque normal de todos los días: <strong style="color:#fff">puede ser bloqueado, cancelado o resistido</strong>.</p>
+      </article>
+      <article class="term t-perf">
+        <h3 data-i18n="term2Name">Ataque Perforante</h3>
+        <p data-i18n="term2Text"><strong style="color:#fff">Ignora las resistencias y protecciones</strong> del Héroe objetivo. Puede cancelarse, salvo que la carta diga Imparable.</p>
+      </article>
+      <article class="term t-imp">
+        <h3 data-i18n="term3Name">Imparable</h3>
+        <p data-i18n="term3Text"><strong style="color:#fff">No puede ser cancelado por defensas normales</strong>… pero sí por <em>Fuga en la Rutera</em>. Nada es para siempre.</p>
+      </article>
+      <article class="term t-glob">
+        <h3 data-i18n="term4Name">Efecto Global</h3>
+        <p data-i18n="term4Text">Afecta a <strong style="color:#fff">todos o a toda la mesa</strong>. No es un ataque de objetivo único, así que no se redirige como uno.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 5 GLOSARIO -->
+  <section id="glosario">
+    <div class="sec-head"><span class="sec-num n-violet">5</span><h2 data-i18n="s5Title">Glosario de cartas</h2></div>
+    <p class="sec-intro" data-i18n="s5Intro">Las 90 cartas del mazo, tipo por tipo. El número junto a cada carta es cuántas copias trae el mazo. Filtra por tipo o busca una carta por nombre o efecto. Estúdialas bien, que tu rival ya lo está haciendo el muy ladino.</p>
+
+    <div class="gloss-tools" role="group" data-i18n-aria="glossToolsAria" aria-label="Filtrar cartas por tipo">
+      <button class="filter-btn active" data-filter="all" type="button" data-i18n="filterAll">Todas (90)</button>
+      <button class="filter-btn" data-filter="heroe" type="button" data-i18n="filterHeroe">Héroe · 28</button>
+      <button class="filter-btn" data-filter="amenaza" type="button" data-i18n="filterAmenaza">Amenaza · 30</button>
+      <button class="filter-btn" data-filter="legendario" type="button" data-i18n="filterLegendario">Legendario · 3</button>
+      <button class="filter-btn" data-filter="apoyo" type="button" data-i18n="filterApoyo">Apoyo · 21</button>
+      <button class="filter-btn" data-filter="trampa" type="button" data-i18n="filterTrampa">Trampa · 8</button>
+      <input class="search" id="glossSearch" type="search" data-i18n-ph="searchPh" data-i18n-aria="searchAria" placeholder="Buscar carta… ej. «chancla», «destruye», «cancela»" aria-label="Buscar carta por nombre o efecto" />
+    </div>
+
+    <div class="split">
+      <div class="howto">
+        <h3 class="howto-title" data-i18n="howtoTitle">Cómo leer una carta</h3>
+        <p class="howto-intro" data-i18n="howtoIntro">Todas se leen igual, en cuatro vistazos. El ejemplo es el Ajolote Navajero, la cara del juego:</p>
+        <div class="howto-visual">
+          <img src="img05.jpg" data-i18n-alt="ajoloteAlt" alt="Carta terminada del Ajolote Navajero (Switchblade Axolotl): ajolote rosa en graffiti neón con una navaja, frente a una trajinera, con marco verde, símbolo de espada en la esquina superior derecha, nombre y texto del efecto abajo" loading="lazy" />
+          <span class="zone zone-frame" aria-hidden="true"></span>
+          <span class="zone zone-symbol" aria-hidden="true"></span>
+          <span class="zone zone-name" aria-hidden="true"></span>
+          <span class="zone zone-effect" aria-hidden="true"></span>
+          <span class="pin pin1" aria-hidden="true">1</span>
+          <span class="pin pin2" aria-hidden="true">2</span>
+          <span class="pin pin3" aria-hidden="true">3</span>
+          <span class="pin pin4" aria-hidden="true">4</span>
+        </div>
+        <ol class="howto-list">
+          <li><span class="howto-num" aria-hidden="true">1</span><p><strong data-i18n="howto1Title">Marco de color</strong>. <span data-i18n="howto1Text">El borde que rodea la carta dice su tipo sin leer nada. Este es verde: es un Héroe.</span></p></li>
+          <li><span class="howto-num" aria-hidden="true">2</span><p><strong data-i18n="howto2Title">Símbolo</strong>. <span data-i18n="howto2Text">En la esquina superior derecha, teñido del color del tipo. Cada figura anuncia el efecto de la carta: esta espada verde es Attack. Abajo están los 9 símbolos.</span></p></li>
+          <li><span class="howto-num" aria-hidden="true">3</span><p><strong data-i18n="howto3Title">Nombre</strong>. <span data-i18n="howto3Text">Abajo, en letras grandes: SWITCHBLADE AXOLOTL. Así sabes a quién estás bajando a la mesa.</span></p></li>
+          <li><span class="howto-num" aria-hidden="true">4</span><p><strong data-i18n="howto4Title">Texto del efecto</strong>. <span data-i18n="howto4Text">Bajo el nombre, tras la línea de color: lo que la carta hace. Esta entra destruyendo 1 Héroe rival, con Ataque Básico.</span></p></li>
+        </ol>
+        <div class="howto-key">
+          <h4 data-i18n="howtoKeyTitle">Clave de colores — el marco según el tipo</h4>
+          <ul class="key-list">
+            <li class="key-item"><span class="key-swatch" style="border-color:var(--green)" aria-hidden="true"></span><span data-i18n="keyHeroe">Verde — Héroe</span></li>
+            <li class="key-item"><span class="key-swatch" style="border-color:var(--pink2)" aria-hidden="true"></span><span data-i18n="keyAmenaza">Rojo — Amenaza</span></li>
+            <li class="key-item"><span class="key-swatch" style="border-color:var(--blue)" aria-hidden="true"></span><span data-i18n="keyApoyo">Azul — Apoyo</span></li>
+            <li class="key-item"><span class="key-swatch" style="border-color:var(--violet)" aria-hidden="true"></span><span data-i18n="keyLegendario">Morado — Legendario</span></li>
+            <li class="key-item"><span class="key-swatch" style="border-color:var(--yellow)" aria-hidden="true"></span><span data-i18n="keyTrampa">Amarillo — Trampa</span></li>
+          </ul>
+        </div>
+        <div class="howto-syms">
+          <h4 data-i18n="howtoSymsTitle">Los 9 símbolos — qué significa cada uno</h4>
+          <p class="syms-note" data-i18n="howtoSymsNote">El símbolo va teñido del color del tipo de la carta. Esto es lo que anuncia cada figura:</p>
+          <ul class="sym-list">
+            <li class="sym-item"><img src="img06.png" data-i18n-alt="symAttackAlt" alt="Símbolo de la espada: Attack" width="240" height="240" loading="lazy" /><p><strong>Attack — <span data-i18n="symAttackName">Espada</span>.</strong> <span data-i18n="symAttackText">Atacar o destruir Héroes rivales.</span></p></li>
+            <li class="sym-item"><img src="img07.png" data-i18n-alt="symDefenseAlt" alt="Símbolo del escudo: Defense" width="240" height="240" loading="lazy" /><p><strong>Defense — <span data-i18n="symDefenseName">Escudo</span>.</strong> <span data-i18n="symDefenseText">Bloquear, proteger o resistir ataques.</span></p></li>
+            <li class="sym-item"><img src="img08.png" data-i18n-alt="symLoseAlt" alt="Símbolo de la carta rota: Perder" width="240" height="240" loading="lazy" /><p><strong><span data-i18n="symLoseName">Perder</span> — <span data-i18n="symLoseFigure">Carta rota</span>.</strong> <span data-i18n="symLoseText">Pierdes una carta o haces perder una carta.</span></p></li>
+            <li class="sym-item"><img src="img09.png" data-i18n-alt="symRestrictAlt" alt="Símbolo de restringido: Restriction" width="240" height="240" loading="lazy" /><p><strong>Restriction — <span data-i18n="symRestrictName">Restringido</span>.</strong> <span data-i18n="symRestrictText">Impedir que un jugador realice una acción, cancelar.</span></p></li>
+            <li class="sym-item"><img src="img10.png" data-i18n-alt="symVisionAlt" alt="Símbolo del ojo: Vision" width="240" height="240" loading="lazy" /><p><strong>Vision — <span data-i18n="symVisionName">Ojo</span>.</strong> <span data-i18n="symVisionText">Mirar o revelar cartas.</span></p></li>
+            <li class="sym-item"><img src="img11.png" data-i18n-alt="symRecoveryAlt" alt="Símbolo del signo de más: Recovery" width="240" height="240" loading="lazy" /><p><strong>Recovery — <span data-i18n="symRecoveryName">Signo de más</span>.</strong> <span data-i18n="symRecoveryText">Obtener, robar o recuperar Héroes y cartas.</span></p></li>
+            <li class="sym-item"><img src="img12.png" data-i18n-alt="symManualAlt" alt="Símbolo del libro: Manual" width="240" height="240" loading="lazy" /><p><strong>Manual — <span data-i18n="symManualName">Libro</span>.</strong> <span data-i18n="symManualText">Leer el manual para información completa.</span></p></li>
+            <li class="sym-item"><img src="img13.png" data-i18n-alt="symSpecialAlt" alt="Símbolo de la estrella: Special" width="240" height="240" loading="lazy" /><p><strong>Special — <span data-i18n="symSpecialName">Estrella</span>.</strong> <span data-i18n="symSpecialText">Efectos especiales o legendarios.</span></p></li>
+            <li class="sym-item"><img src="img14.png" data-i18n-alt="symTrapAlt" alt="Símbolo de cuidado, un triángulo con signo de exclamación: Trap" width="240" height="240" loading="lazy" /><p><strong>Trap — <span data-i18n="symTrapName">Cuidado</span>.</strong> <span data-i18n="symTrapText">Trampas de activación inmediata.</span></p></li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <!-- HÉROE -->
+        <div class="type-block" data-type="heroe">
+          <div class="type-head th-heroe">
+            <h3 data-i18n="typeHeroe">Tipo Héroe</h3><span class="count" data-i18n="count28">28 cartas</span>
+            <p data-i18n="ruleHeroe">Solo puedes bajar <strong style="color:#fff">1 por turno</strong>. Necesitas <strong style="color:#fff">3 en mesa</strong> para ganar.</p>
+          </div>
+          <div class="cards-list">
+            <article class="gcard" data-type="heroe"><span class="copies c-heroe">×5</span><div><h4>Ajolote Navajero</h4><p data-i18n="cardAjolote">Al jugar: destruye 1 Héroe rival en mesa. <span class="kw">Ataque Básico.</span></p></div></article>
+            <article class="gcard" data-type="heroe"><span class="copies c-heroe">×5</span><div><h4>Cacomixtle Fronterizo</h4><p data-i18n="cardCacomixtle">Al jugar: roba 1 carta al azar de la mano de un rival.</p></div></article>
+            <article class="gcard" data-type="heroe"><span class="copies c-heroe">×5</span><div><h4 data-i18n="namePterodactilo">Pterodáctilo en Juárez</h4><p data-i18n="cardQuetzal">Al jugar: mira 3 cartas del mazo. Toma 1; devuelve 2 arriba en cualquier orden.</p></div></article>
+            <article class="gcard" data-type="heroe"><span class="copies c-heroe">×5</span><div><h4>Calupoh Alfa</h4><p data-i18n="cardCalupoh">Al jugar: si tienes menos Héroes que un rival, roba 2 cartas.</p></div></article>
+            <article class="gcard" data-type="heroe"><span class="copies c-heroe">×3</span><div><h4>Xolo de Azotea</h4><p data-i18n="cardXolo">Resiste 1 Ataque Básico y gíralo. Si recibe otro Ataque Básico mientras está girado, es destruido.</p></div></article>
+            <article class="gcard" data-type="heroe"><span class="copies c-heroe">×3</span><div><h4>Jaguar del Inframundo</h4><p data-i18n="cardJaguar">Al jugar: toma 1 carta del Basurero y ponla en tu mano.</p></div></article>
+            <article class="gcard" data-type="heroe"><span class="copies c-heroe">×2</span><div><h4>El Nahual</h4><p data-i18n="cardNahual"><span class="kw">Cuenta como 2 Héroes.</span> Para jugarlo, descarta 1 Héroe. Si muere, tu Rabia baja a 0. No puede ser protegido.</p></div></article>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AMENAZA -->
+    <div class="type-block" data-type="amenaza">
+      <div class="type-head th-amenaza">
+        <h3 data-i18n="typeAmenaza">Tipo Amenaza</h3><span class="count" data-i18n="count30">30 cartas</span>
+        <p data-i18n="ruleAmenaza">Úsalas en tu turno para atacar o controlar. <strong style="color:#fff">Sin límite de uso.</strong></p>
+      </div>
+      <div class="cards-list">
+        <article class="gcard" data-type="amenaza"><span class="copies c-amenaza">×14</span><div><h4>Jauría de Chihuahuas</h4><p data-i18n="cardJauria">Destruye 1 Héroe rival en mesa. <span class="kw">Ataque Básico.</span> Chiquitos, pero son catorce cartas de coraje.</p></div></article>
+        <article class="gcard" data-type="amenaza"><span class="copies c-amenaza">×6</span><div><h4>La Polilla del Bordo</h4><p data-i18n="cardPolilla">Destruye 1 Héroe rival en mesa. <span class="kw">Ataque Perforante.</span></p></div></article>
+        <article class="gcard" data-type="amenaza"><span class="copies c-amenaza">×3</span><div><h4>La Mordida</h4><p data-i18n="cardMordida">Elige 1 jugador: descarta 2 cartas al azar de su mano.</p></div></article>
+        <article class="gcard" data-type="amenaza"><span class="copies c-amenaza">×2</span><div><h4>Político Rata</h4><p data-i18n="cardPolitico">Elige 1 Héroe rival en mesa y muévelo a tu mesa. Como buen político, cambia de bando.</p></div></article>
+        <article class="gcard" data-type="amenaza"><span class="copies c-amenaza">×3</span><div><h4>Empacho Severo</h4><p data-i18n="cardEmpacho">Elige 1 jugador: no puede jugar Héroes en su siguiente turno.</p></div></article>
+        <article class="gcard" data-type="amenaza"><span class="copies c-amenaza">×2</span><div><h4>El Chupacabras</h4><p data-i18n="cardChupacabras">Destruye 2 Héroes rivales en mesa. <span class="kw">Imparable.</span></p></div></article>
+      </div>
+    </div>
+
+    <!-- LEGENDARIO -->
+    <div class="type-block" data-type="legendario">
+      <div class="type-head th-legendario">
+        <h3 data-i18n="typeLegendario">Tipo Legendario</h3><span class="count" data-i18n="count3">3 cartas</span>
+        <p data-i18n="ruleLegendario">Cartas únicas de poder catastrófico. <strong style="color:#fff">Pocas, horribles y hermosas.</strong></p>
+      </div>
+      <div class="cards-list">
+        <article class="gcard" data-type="legendario"><span class="copies c-legendario">×1</span><div><h4>Cipactli</h4><p data-i18n="cardCipactli"><span class="kw">Efecto Global:</span> todos destruyen 1 Héroe propio en mesa, incluido tú.</p></div></article>
+        <article class="gcard" data-type="legendario"><span class="copies c-legendario">×1</span><div><h4>Quetzalcóatl</h4><p data-i18n="cardQuetzalcoatl">Elige 1 rival: destruye 1 de sus Héroes y descarta 3 cartas al azar. <span class="kw">Imparable.</span></p></div></article>
+        <article class="gcard" data-type="legendario"><span class="copies c-legendario">×1</span><div><h4>La Chancla Voladora</h4><p data-i18n="cardChancla"><span class="kw">Efecto Global:</span> destruye todos los Héroes en mesa, incluidos los tuyos. La chancla no perdona a nadie.</p></div></article>
+      </div>
+    </div>
+
+    <!-- APOYO -->
+    <div class="type-block" data-type="apoyo">
+      <div class="type-head th-apoyo">
+        <h3 data-i18n="typeApoyo">Tipo Apoyo y Reacción</h3><span class="count" data-i18n="count21">21 cartas</span>
+        <p data-i18n="ruleApoyo">Pueden jugarse <strong style="color:#fff">en respuesta</strong> a ataques, efectos, muertes o Trampas, según indique la carta.</p>
+      </div>
+      <div class="cards-list">
+        <article class="gcard" data-type="apoyo"><span class="copies c-apoyo">×7</span><div><h4>Ahorita No Joven</h4><p data-i18n="cardAhorita">Cancela 1 Ataque Básico dirigido a ti.</p></div></article>
+        <article class="gcard" data-type="apoyo"><span class="copies c-apoyo">×4</span><div><h4>Reflejo de la Vaquita Marina</h4><p data-i18n="cardReflejo">Cancela 1 ataque de objetivo único contra ti y redirígelo a otro jugador.</p></div></article>
+        <article class="gcard" data-type="apoyo"><span class="copies c-apoyo">×5</span><div><h4>¿Y Esta Rosa?</h4><p data-i18n="cardRosa">Cuando muera un Héroe tuyo: revívelo al instante en tu mesa.</p></div></article>
+        <article class="gcard" data-type="apoyo"><span class="copies c-apoyo">×5</span><div><h4>Fuga en la Rutera</h4><p data-i18n="cardFuga">Cancela 1 carta recién jugada por un rival, <span class="kw">incluso Legendaria o Trampa revelada</span>. La carta más brava del mazo.</p></div></article>
+      </div>
+    </div>
+
+    <!-- TRAMPA -->
+    <div class="type-block" data-type="trampa">
+      <div class="type-head th-trampa">
+        <h3 data-i18n="typeTrampa">Tipo Trampa</h3><span class="count" data-i18n="count8">8 cartas</span>
+        <p data-i18n="ruleTrampa">Si robas una Trampa del mazo, debes <strong style="color:#fff">revelarla inmediatamente</strong>. Su efecto ocurre al instante.</p>
+      </div>
+      <div class="cards-list">
+        <article class="gcard" data-type="trampa"><span class="copies c-trampa">×2</span><div><h4>Intercambio Godínez</h4><p data-i18n="cardIntercambio">Intercambia tu mano con quien tenga más Héroes en mesa. En empate, eliges.</p></div></article>
+        <article class="gcard" data-type="trampa"><span class="copies c-trampa">×2</span><div><h4>La Venganza de Moctezuma</h4><p data-i18n="cardMoctezuma">Todos pasan su mano completa al jugador de la izquierda.</p></div></article>
+        <article class="gcard" data-type="trampa"><span class="copies c-trampa">×2</span><div><h4>Cruda de Aguas Locas</h4><p data-i18n="cardCruda">Descarta toda tu mano al Basurero y roba 4 cartas.</p></div></article>
+        <article class="gcard" data-type="trampa"><span class="copies c-trampa">×2</span><div><h4>El Sueño Americano</h4><p data-i18n="cardSueno">Destruye 1 de tus propios Héroes en mesa. El sueño, a veces, sale caro.</p></div></article>
+      </div>
+    </div>
+
+    <p class="no-results" id="noResults" data-i18n="noResults">Ninguna carta coincide con ese filtro. Prueba con otro nombre o efecto.</p>
+  </section>
+
+  <!-- 6 FAQ -->
+  <section id="faq">
+    <div class="sec-head"><span class="sec-num n-orange">6</span><h2 data-i18n="s6Title">Clarificación de reglas / FAQ</h2></div>
+    <p class="sec-intro" data-i18n="s6Intro">Las dudas que siempre salen a media partida, resueltas de una vez, para que la única pelea sea con cartas y no a gritos. Toca cada pregunta para ver la respuesta.</p>
+    <div class="faq">
+      <details>
+        <summary><span class="qnum">6.1</span> <span data-i18n="faq61Q">Ahorita No Joven — ¿qué cancela exactamente?</span></summary>
+        <div class="ans" data-i18n="faq61A">Solo cancela <strong>Ataques Básicos dirigidos a ti</strong>, como el Ajolote Navajero o la Jauría de Chihuahuas. <strong>No</strong> cancela Perforantes, Imparables, Legendarias, Trampas ni Efectos Globales.</div>
+      </details>
+      <details>
+        <summary><span class="qnum">6.2</span> <span data-i18n="faq62Q">Xolo de Azotea — ¿cómo funciona su resistencia?</span></summary>
+        <div class="ans" data-i18n="faq62A">Resiste <strong>1 Ataque Básico y se gira</strong>. Si recibe otro Ataque Básico mientras está girado, es destruido. Los Perforantes, Imparables, Legendarias y Trampas <strong>ignoran su resistencia</strong>. <span class="punch">Ni modo, Firulais.</span></div>
+      </details>
+      <details>
+        <summary><span class="qnum">6.3</span> <span data-i18n="faq63Q">Reflejo de la Vaquita Marina — ¿qué puede redirigir?</span></summary>
+        <div class="ans" data-i18n="faq63A">Cancela y redirige <strong>ataques de objetivo único contra ti</strong>. Sí cancela Básicos y Perforantes. <strong>No</strong> cancela Imparables, Trampas, Efectos Globales ni cartas que no sean ataques.</div>
+      </details>
+      <details>
+        <summary><span class="qnum">6.4</span> <span data-i18n="faq64Q">Empacho Severo — ¿qué sí puedo hacer empachado?</span></summary>
+        <div class="ans" data-i18n="faq64A">En tu siguiente turno <strong>no puedes jugar Héroes</strong>. Sí puedes robar, jugar Amenazas, Legendarias y Apoyo/Reacción, activar Rabia y descartar al final. <span class="punch">Estás empachado, no muerto.</span></div>
+      </details>
+      <details>
+        <summary><span class="qnum">6.5</span> <span data-i18n="faq65Q">El Nahual — ¿qué pasa cuando muere?</span></summary>
+        <div class="ans" data-i18n="faq65A">Cuenta como <strong>2 Héroes</strong> y puede darte la victoria. Si es destruido, va al Basurero, <strong>ganas 1 Rabia y luego tu Medidor baja a Nivel 0</strong>.</div>
+      </details>
+      <details>
+        <summary><span class="qnum">6.6</span> <span data-i18n="faq66Q">Fuga en la Rutera — ¿de verdad cancela todo?</span></summary>
+        <div class="ans" data-i18n="faq66A">Cancela <strong>cartas recién jugadas por un rival</strong>, Trampas recién reveladas e <strong>incluso efectos Imparables</strong>. Es la única defensa que le entra a lo Imparable.</div>
+      </details>
+      <details>
+        <summary><span class="qnum">6.7</span> <span data-i18n="faq67Q">Rabia — ¿cuándo NO gano Rabia?</span></summary>
+        <div class="ans" data-i18n="faq67A"><strong>No</strong> ganas Rabia si tu Héroe es robado, movido, intercambiado o devuelto. Solo ganas Rabia si es <strong>destruido y enviado al Basurero</strong>.</div>
+      </details>
+      <details>
+        <summary><span class="qnum">6.8</span> <span data-i18n="faq68Q">Rabia — ¿cuánta gano si me destruyen varios Héroes de un golpe?</span></summary>
+        <div class="ans" data-i18n="faq68A">Ganas <strong>1 Rabia por cada Héroe tuyo destruido</strong>: cada Héroe que cae genera la suya. Si un efecto como Cipactli o La Chancla Voladora te destruye 2 o 3 Héroes de un jalón, ganas 2 o 3 de Rabia. Pero el Medidor <strong>no puede pasar de Nivel 3</strong>: lo que sobre, se pierde. El coraje tiene tope.</div>
+      </details>
+      <details>
+        <summary><span class="qnum">6.9</span> <span data-i18n="faq69Q">¿Y Esta Rosa? — si mi Héroe revive al instante, ¿gano Rabia?</span></summary>
+        <div class="ans" data-i18n="faq69A"><strong>No.</strong> Si revives a tu Héroe al instante con <strong>¿Y Esta Rosa?</strong>, <strong>no ganas Rabia</strong> por esa muerte: la Rabia se gana cuando el Héroe es destruido, y este nunca llegó a caer. Y ojo: <strong>revivir no cuenta como tu Héroe del turno</strong>. Ni con ¿Y Esta Rosa? ni con el Nivel 3 de Rabia: después de revivir, todavía puedes bajar 1 Héroe en tu turno.</div>
+      </details>
+      <details>
+        <summary><span class="qnum">6.10</span> <span data-i18n="faq610Q">El Nahual — ¿qué significa que «no puede ser protegido»?</span></summary>
+        <div class="ans" data-i18n="faq610A">Significa que <strong>Ahorita No Joven</strong> y <strong>Reflejo de la Vaquita Marina</strong> no pueden defenderlo: nadie puede bloquear ni redirigir un ataque contra El Nahual. Pero <strong>sí puede ser revivido</strong>: ¿Y Esta Rosa? y el Nivel 3 de Rabia (Sana, Sana, Colita de Rana) sí lo traen de vuelta, porque <strong>revivir no es proteger</strong>.</div>
+      </details>
+    </div>
+  </section>
+
+  <!-- 7 PÓSTER OFICIAL PARA IMPRIMIR -->
+  <section id="poster-imprimir">
+    <div class="sec-head"><span class="sec-num n-pink">7</span><h2 data-i18n="s7Title">Póster oficial para imprimir</h2></div>
+    <p class="sec-intro" data-i18n="s7Intro">El manual completo en una sola hoja, listo para la mesa. Elige tu idioma: abre el póster en grande para verlo con calma o imprímelo y tenlo a la mano durante la partida, como acordeón de examen, pero cien por ciento legal.</p>
+    <div class="poster-grid">
+      <article class="poster-card">
+        <h3><span class="lang-tag" style="background:var(--pink); color:#fff">ES</span> <span data-i18n="posterEsTitle">Póster en español</span></h3>
+        <button class="poster-thumb" type="button" data-poster-open="es" data-i18n-aria="posterEsViewAria" aria-label="Ver el póster en español en grande">
+          <img src="img15.jpg" width="1600" height="2866" loading="lazy" decoding="async" data-i18n-alt="posterEsAlt" alt="Póster oficial de RABIA! en español: el manual completo en una hoja, con el ajolote navajero, las reglas, el sistema de Rabia y el glosario de las 90 cartas" />
+        </button>
+        <div class="poster-actions">
+          <button class="btn primary" type="button" data-poster-open="es" data-i18n="btnViewFull">Ver en grande</button>
+          <a class="btn spend" href="img16.png" target="_blank" rel="noopener" data-i18n="btnPrint">Imprimir póster</a>
+        </div>
+      </article>
+      <article class="poster-card">
+        <h3><span class="lang-tag" style="background:var(--blue)">EN</span> <span data-i18n="posterEnTitle">Póster en inglés</span></h3>
+        <button class="poster-thumb" type="button" data-poster-open="en" data-i18n-aria="posterEnViewAria" aria-label="Ver el póster en inglés en grande">
+          <img src="img17.jpg" width="1600" height="2866" loading="lazy" decoding="async" data-i18n-alt="posterEnAlt" alt="Póster oficial de RABIA! en inglés: el manual completo en una hoja, con los nombres de las cartas en inglés, las reglas, el sistema de Rage y el glosario de las 90 cartas" />
+        </button>
+        <div class="poster-actions">
+          <button class="btn primary" type="button" data-poster-open="en" data-i18n="btnViewFull2">Ver en grande</button>
+          <a class="btn spend" href="img18.png" target="_blank" rel="noopener" data-i18n="btnPrint2">Imprimir póster</a>
+        </div>
+      </article>
+    </div>
+    <p class="poster-note" data-i18n="posterNote">Tip de mesa: «Imprimir póster» abre la imagen sola, en grande, para imprimirla o guardarla desde ahí, en hoja completa y sin márgenes si tu impresora lo permite. El póster en inglés conserva los nombres de las cartas en inglés, tal como se diseñó.</p>
+  </section>
+
+  <footer>
+    <p class="slogan"><span class="s1" data-i18n="slogan1">¡Controla tu Rabia,</span><br><span class="s2" data-i18n="slogan2">domina la mesa!</span></p>
+    <p data-i18n="footerLine">Manual Oficial de RABIA! · 2 a 6 jugadores · 15–25 minutos · 90 cartas · Hecho en la frontera, con coraje y con cariño. El que se enoja, pierde… bueno, aquí el que se enoja, gana Rabia.</p>
+  </footer>
+</div>
+
+<!-- Visor grande del póster (en página, siempre con salida visible) -->
+<div class="lightbox" id="posterLightbox" role="dialog" aria-modal="true" aria-labelledby="lbTitle" hidden>
+  <div class="lightbox-bar">
+    <p class="lb-title" id="lbTitle">Póster oficial</p>
+    <a class="btn spend" id="lbPrint" href="img16.png" target="_blank" rel="noopener" data-i18n="btnPrintLb">Imprimir póster</a>
+    <button class="btn lb-close-btn" type="button" id="lbClose" data-i18n="btnCloseLb">Cerrar ✕</button>
+    <p class="lb-hint" data-i18n="lbHint">Para salir: toca «Cerrar ✕», toca fuera de la imagen o usa la tecla Esc.</p>
+  </div>
+  <div class="lightbox-scroll">
+    <img id="lbImg" src="img15.jpg" alt="Póster oficial de RABIA! en español" />
+  </div>
+</div>
+
+<!-- Al imprimir la página, salen solo los dos pósteres, uno por hoja -->
+<div id="printArea" aria-hidden="true">
+  <img src="img16.png" alt="" />
+  <img src="img18.png" alt="" />
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ================= I18N ================= */
+  var I18N = {
+    es: {
+      docTitle: "Manual Oficial RABIA!",
+      kicker: "Manual Oficial",
+      heroSub: "El juego de cartas fronterizo: héroes de barrio, amenazas de leyenda y mucha, <strong>mucha rabia</strong>. Aquí se viene a repartir trancazos, a perder con dignidad (o sin ella) y a cobrar venganza con una sonrisota. Baja héroes, aguanta vara y sé el primero en dominar la mesa.",
+      chipPlayers: "Jugadores", chipPlayersVal: "2 a 6", chipDuration: "Duración",
+      chipDeck: "Mazo", chipDeckVal: "90 cartas", chipWin: "Para ganar", chipWinVal: "3 Héroes vivos",
+      objLab: "◎ Objetivo",
+      objText: "Sé el primero en tener <strong>3 Héroes vivos en tu mesa</strong>. Si lo logras en cualquier momento, <strong>ganas inmediatamente</strong>.",
+      posterAlt: "Póster oficial del manual de RABIA!: el ajolote con dos navajas sobre el título en graffiti neón y las secciones del manual",
+      posterCap: "El póster oficial del manual, en su versión mural.",
+      tocAria: "Índice del manual",
+      nav1: "1 · Preparación", nav2: "2 · El turno", nav3: "3 · Sistema de Rabia",
+      nav4: "4 · Términos", nav5: "5 · Glosario de cartas", nav6: "6 · FAQ",
+      s1Title: "Preparación",
+      s1Intro: "Cinco minutos de acomodo y a repartir trancazos. Peléense por el lugar con respaldo si quieren, pero por las reglas no: esto es todo lo que necesitas antes de la primera mano.",
+      s1Card1Title: "El mazo y El Basurero",
+      s1L1: "Baraja las <strong>90 cartas</strong> y colócalas boca abajo: ese es el mazo.",
+      s1L2: "Designa un espacio para <strong>El Basurero</strong>, donde van las cartas usadas, las descartadas y los Héroes destruidos.",
+      s1L3: "Reparte <strong>5 cartas</strong> a cada jugador.",
+      s1Trap: "<strong>¿Trampa en la mano inicial?</strong> No se activa. Si alguien recibe una Trampa al repartir, debe revelarla, apartarla, robar un reemplazo, devolver la Trampa al mazo y barajar.",
+      s1Card2Title: "Tu Medidor de Rabia",
+      s1MeterIntro: "Cada jugador recibe una carta de Medidor de Rabia de doble cara y la coloca en posición de <strong style=\"color:var(--ink)\">Nivel 0</strong>. La posición de la carta es el nivel:",
+      s1Lvl0: "<strong>Nivel 0 —</strong> coloca la carta en horizontal.",
+      s1Lvl12: "<strong>Nivel 1 o 2 —</strong> gira la carta para que el nivel actual apunte hacia los demás jugadores.",
+      s1Lvl3: "<strong>Nivel 3 —</strong> voltea la carta al reverso. Rabia máxima.",
+      s1Start: "<strong>¿Quién empieza?</strong> Todos tiran un dado y empieza el número <strong>más bajo</strong>. En empate, vuelvan a tirar. Después se juega en sentido horario. <strong>¿Sin dado?</strong> Empieza el jugador más enojón.",
+      s2Title: "Estructura del turno",
+      s2Intro: "Cuando sea tu turno, sigue estas cuatro fases en orden. Sin saltarse pasos, sin hacerse el vivo y sin llorar antes de tiempo: la lloradera oficial va en la fase de Rabia.",
+      ph1Name: "Robo",
+      ph1Text: "Roba 1 carta. Si es normal, va a tu mano. Si es <strong style=\"color:#fff\">Trampa</strong>, revélala y actívala de inmediato. Puedes usar <em>Fuga en la Rutera</em> para cancelarla.",
+      ph2Name: "Acción",
+      ph2Text: "Juega cualquier cantidad de <strong style=\"color:#fff\">Amenazas, Legendarias y Apoyo/Reacción</strong> si su efecto es válido. Puedes atacar a varios jugadores en el mismo turno. Solo puedes jugar <strong style=\"color:#fff\">1 Héroe por turno</strong>.",
+      ph3Name: "Rabia",
+      ph3Text: "Puedes gastar tu Rabia acumulada para activar un efecto. Consulta la <a href=\"#rabia\">Sección 3: Sistema de Rabia</a>.",
+      ph4Name: "Fin",
+      ph4Text: "Si tienes más de <strong style=\"color:#fff\">7 cartas</strong>, descarta al Basurero hasta quedarte con 7. Si el mazo se acaba, baraja El Basurero para formar un nuevo mazo.",
+      s3Title: "Sistema de Rabia",
+      s3Intro: "La Rabia es el coraje acumulado de ver caer a tus Héroes. Duele perderlos… pero ese coraje se cobra, y se cobra con intereses, como buen préstamo de barrio. Y cada nivel tiene su marca en el muro: Nivel 1, el ojo; Nivel 2, el puño; Nivel 3, la cola larga.",
+      r1ImgAlt: "Nivel 1 de Rabia: un ojo turquesa pintado en graffiti neón sobre un muro negro, con el texto LEVEL 1 arriba",
+      r2ImgAlt: "Nivel 2 de Rabia: un puño cerrado decorado con flores, pintado en graffiti neón sobre un muro negro, con el texto LEVEL 2 abajo",
+      r3ImgAlt: "Nivel 3 de Rabia: la cola larga de una rana, amarilla y enrollada en espiral, pintada en graffiti neón sobre un muro negro, con el texto LEVEL 3 arriba",
+      s3CardTitle: "¿Cómo se gana Rabia?",
+      s3L1: "Ganas <strong>1 Rabia solo cuando un Héroe tuyo en mesa es destruido</strong> y enviado al Basurero.",
+      s3L2: "<strong>NO</strong> ganas Rabia si tu Héroe es robado, movido, intercambiado, devuelto a tu mano o descartado desde tu mano.",
+      s3L3: "El Medidor <strong>no puede pasar de Nivel 3</strong>. Al gastar tu Rabia, el Medidor <strong>vuelve a Nivel 0</strong>.",
+      r1Lvl: "Nivel 1", r1Text: "Roba <strong style=\"color:#fff\">2 cartas</strong>. El coraje leve también ayuda.",
+      r2Lvl: "Nivel 2", r2Text: "Destruye <strong style=\"color:#fff\">1 Héroe rival</strong>.", tagImparable: "Imparable",
+      r3Lvl: "Nivel 3", r3Text: "Revive <strong style=\"color:#fff\">1 Héroe del Basurero</strong> a tu mesa y roba <strong style=\"color:#fff\">2 cartas</strong>. La venganza completa.",
+      simAria: "Simulador del Medidor de Rabia",
+      simTitle: "Prueba el Medidor",
+      simSub: "Toca los botones como si estuvieras en la mesa: pierde, llora poquito, acumula y cobra. Mira cómo sube — y cómo se gasta — tu Rabia.",
+      btnGain: "Destruyeron a mi Héroe (+1 Rabia)", btnSpend: "Gastar mi Rabia", btnReset: "Reiniciar",
+      s4Title: "Términos importantes",
+      s4Intro: "Cuatro palabras que deciden partidas. Apréndetelas antes de discutir con la mesa, porque el que no sabe, pierde… y encima le echan carrilla toda la noche.",
+      term1Name: "Ataque Básico",
+      term1Text: "El ataque normal de todos los días: <strong style=\"color:#fff\">puede ser bloqueado, cancelado o resistido</strong>.",
+      term2Name: "Ataque Perforante",
+      term2Text: "<strong style=\"color:#fff\">Ignora las resistencias y protecciones</strong> del Héroe objetivo. Puede cancelarse, salvo que la carta diga Imparable.",
+      term3Name: "Imparable",
+      term3Text: "<strong style=\"color:#fff\">No puede ser cancelado por defensas normales</strong>… pero sí por <em>Fuga en la Rutera</em>. Nada es para siempre.",
+      term4Name: "Efecto Global",
+      term4Text: "Afecta a <strong style=\"color:#fff\">todos o a toda la mesa</strong>. No es un ataque de objetivo único, así que no se redirige como uno.",
+      s5Title: "Glosario de cartas",
+      s5Intro: "Las 90 cartas del mazo, tipo por tipo. El número junto a cada carta es cuántas copias trae el mazo. Filtra por tipo o busca una carta por nombre o efecto. Estúdialas bien, que tu rival ya lo está haciendo el muy ladino.",
+      glossToolsAria: "Filtrar cartas por tipo",
+      filterAll: "Todas (90)", filterHeroe: "Héroe · 28", filterAmenaza: "Amenaza · 30",
+      filterLegendario: "Legendario · 3", filterApoyo: "Apoyo · 21", filterTrampa: "Trampa · 8",
+      searchPh: "Buscar carta… ej. «chancla», «destruye», «cancela»",
+      searchAria: "Buscar carta por nombre o efecto",
+      ajoloteAlt: "Carta terminada del Ajolote Navajero (Switchblade Axolotl): ajolote rosa en graffiti neón con una navaja, frente a una trajinera, con marco verde, símbolo de espada en la esquina superior derecha, nombre y texto del efecto abajo",
+      howtoTitle: "Cómo leer una carta",
+      howtoIntro: "Todas se leen igual, en cuatro vistazos. El ejemplo es el Ajolote Navajero, la cara del juego:",
+      howto1Title: "Marco de color",
+      howto1Text: "El borde que rodea la carta dice su tipo sin leer nada. Este es verde: es un Héroe.",
+      howto2Title: "Símbolo",
+      howto2Text: "En la esquina superior derecha, teñido del color del tipo. Cada figura anuncia el efecto de la carta: esta espada verde es Attack. Abajo están los 9 símbolos.",
+      howto3Title: "Nombre",
+      howto3Text: "Abajo, en letras grandes: SWITCHBLADE AXOLOTL. Así sabes a quién estás bajando a la mesa.",
+      howto4Title: "Texto del efecto",
+      howto4Text: "Bajo el nombre, tras la línea de color: lo que la carta hace. Esta entra destruyendo 1 Héroe rival, con Ataque Básico.",
+      howtoKeyTitle: "Clave de colores — el marco según el tipo",
+      keyHeroe: "Verde — Héroe", keyAmenaza: "Rojo — Amenaza", keyApoyo: "Azul — Apoyo",
+      keyLegendario: "Morado — Legendario", keyTrampa: "Amarillo — Trampa",
+      howtoSymsTitle: "Los 9 símbolos — qué significa cada uno",
+      howtoSymsNote: "El símbolo va teñido del color del tipo de la carta. Esto es lo que anuncia cada figura:",
+      symAttackAlt: "Símbolo de la espada: Attack",
+      symAttackName: "Espada", symAttackText: "Atacar o destruir Héroes rivales.",
+      symDefenseAlt: "Símbolo del escudo: Defense",
+      symDefenseName: "Escudo", symDefenseText: "Bloquear, proteger o resistir ataques.",
+      symLoseAlt: "Símbolo de la carta rota: Perder",
+      symLoseName: "Perder", symLoseFigure: "Carta rota", symLoseText: "Pierdes una carta o haces perder una carta.",
+      symRestrictAlt: "Símbolo de restringido: Restriction",
+      symRestrictName: "Restringido", symRestrictText: "Impedir que un jugador realice una acción, cancelar.",
+      symVisionAlt: "Símbolo del ojo: Vision",
+      symVisionName: "Ojo", symVisionText: "Mirar o revelar cartas.",
+      symRecoveryAlt: "Símbolo del signo de más: Recovery",
+      symRecoveryName: "Signo de más", symRecoveryText: "Obtener, robar o recuperar Héroes y cartas.",
+      symManualAlt: "Símbolo del libro: Manual",
+      symManualName: "Libro", symManualText: "Leer el manual para información completa.",
+      symSpecialAlt: "Símbolo de la estrella: Special",
+      symSpecialName: "Estrella", symSpecialText: "Efectos especiales o legendarios.",
+      symTrapAlt: "Símbolo de cuidado, un triángulo con signo de exclamación: Trap",
+      symTrapName: "Cuidado", symTrapText: "Trampas de activación inmediata.",
+      typeHeroe: "Tipo Héroe", count28: "28 cartas",
+      ruleHeroe: "Solo puedes bajar <strong style=\"color:#fff\">1 por turno</strong>. Necesitas <strong style=\"color:#fff\">3 en mesa</strong> para ganar.",
+      cardAjolote: "Al jugar: destruye 1 Héroe rival en mesa. <span class=\"kw\">Ataque Básico.</span>",
+      cardCacomixtle: "Al jugar: roba 1 carta al azar de la mano de un rival.",
+      namePterodactilo: "Pterodáctilo en Juárez",
+      cardQuetzal: "Al jugar: mira 3 cartas del mazo. Toma 1; devuelve 2 arriba en cualquier orden.",
+      cardCalupoh: "Al jugar: si tienes menos Héroes que un rival, roba 2 cartas.",
+      cardXolo: "Resiste 1 Ataque Básico y gíralo. Si recibe otro Ataque Básico mientras está girado, es destruido.",
+      cardJaguar: "Al jugar: toma 1 carta del Basurero y ponla en tu mano.",
+      cardNahual: "<span class=\"kw\">Cuenta como 2 Héroes.</span> Para jugarlo, descarta 1 Héroe. Si muere, tu Rabia baja a 0. No puede ser protegido.",
+      typeAmenaza: "Tipo Amenaza", count30: "30 cartas",
+      ruleAmenaza: "Úsalas en tu turno para atacar o controlar. <strong style=\"color:#fff\">Sin límite de uso.</strong>",
+      cardJauria: "Destruye 1 Héroe rival en mesa. <span class=\"kw\">Ataque Básico.</span> Chiquitos, pero son catorce cartas de coraje.",
+      cardPolilla: "Destruye 1 Héroe rival en mesa. <span class=\"kw\">Ataque Perforante.</span>",
+      cardMordida: "Elige 1 jugador: descarta 2 cartas al azar de su mano.",
+      cardPolitico: "Elige 1 Héroe rival en mesa y muévelo a tu mesa. Como buen político, cambia de bando.",
+      cardEmpacho: "Elige 1 jugador: no puede jugar Héroes en su siguiente turno.",
+      cardChupacabras: "Destruye 2 Héroes rivales en mesa. <span class=\"kw\">Imparable.</span>",
+      typeLegendario: "Tipo Legendario", count3: "3 cartas",
+      ruleLegendario: "Cartas únicas de poder catastrófico. <strong style=\"color:#fff\">Pocas, horribles y hermosas.</strong>",
+      cardCipactli: "<span class=\"kw\">Efecto Global:</span> todos destruyen 1 Héroe propio en mesa, incluido tú.",
+      cardQuetzalcoatl: "Elige 1 rival: destruye 1 de sus Héroes y descarta 3 cartas al azar. <span class=\"kw\">Imparable.</span>",
+      cardChancla: "<span class=\"kw\">Efecto Global:</span> destruye todos los Héroes en mesa, incluidos los tuyos. La chancla no perdona a nadie.",
+      typeApoyo: "Tipo Apoyo y Reacción", count21: "21 cartas",
+      ruleApoyo: "Pueden jugarse <strong style=\"color:#fff\">en respuesta</strong> a ataques, efectos, muertes o Trampas, según indique la carta.",
+      cardAhorita: "Cancela 1 Ataque Básico dirigido a ti.",
+      cardReflejo: "Cancela 1 ataque de objetivo único contra ti y redirígelo a otro jugador.",
+      cardRosa: "Cuando muera un Héroe tuyo: revívelo al instante en tu mesa.",
+      cardFuga: "Cancela 1 carta recién jugada por un rival, <span class=\"kw\">incluso Legendaria o Trampa revelada</span>. La carta más brava del mazo.",
+      typeTrampa: "Tipo Trampa", count8: "8 cartas",
+      ruleTrampa: "Si robas una Trampa del mazo, debes <strong style=\"color:#fff\">revelarla inmediatamente</strong>. Su efecto ocurre al instante.",
+      cardIntercambio: "Intercambia tu mano con quien tenga más Héroes en mesa. En empate, eliges.",
+      cardMoctezuma: "Todos pasan su mano completa al jugador de la izquierda.",
+      cardCruda: "Descarta toda tu mano al Basurero y roba 4 cartas.",
+      cardSueno: "Destruye 1 de tus propios Héroes en mesa. El sueño, a veces, sale caro.",
+      noResults: "Ninguna carta coincide con ese filtro. Prueba con otro nombre o efecto.",
+      s6Title: "Clarificación de reglas / FAQ",
+      s6Intro: "Las dudas que siempre salen a media partida, resueltas de una vez, para que la única pelea sea con cartas y no a gritos. Toca cada pregunta para ver la respuesta.",
+      faq61Q: "Ahorita No Joven — ¿qué cancela exactamente?",
+      faq61A: "Solo cancela <strong>Ataques Básicos dirigidos a ti</strong>, como el Ajolote Navajero o la Jauría de Chihuahuas. <strong>No</strong> cancela Perforantes, Imparables, Legendarias, Trampas ni Efectos Globales.",
+      faq62Q: "Xolo de Azotea — ¿cómo funciona su resistencia?",
+      faq62A: "Resiste <strong>1 Ataque Básico y se gira</strong>. Si recibe otro Ataque Básico mientras está girado, es destruido. Los Perforantes, Imparables, Legendarias y Trampas <strong>ignoran su resistencia</strong>. <span class=\"punch\">Ni modo, Firulais.</span>",
+      faq63Q: "Reflejo de la Vaquita Marina — ¿qué puede redirigir?",
+      faq63A: "Cancela y redirige <strong>ataques de objetivo único contra ti</strong>. Sí cancela Básicos y Perforantes. <strong>No</strong> cancela Imparables, Trampas, Efectos Globales ni cartas que no sean ataques.",
+      faq64Q: "Empacho Severo — ¿qué sí puedo hacer empachado?",
+      faq64A: "En tu siguiente turno <strong>no puedes jugar Héroes</strong>. Sí puedes robar, jugar Amenazas, Legendarias y Apoyo/Reacción, activar Rabia y descartar al final. <span class=\"punch\">Estás empachado, no muerto.</span>",
+      faq65Q: "El Nahual — ¿qué pasa cuando muere?",
+      faq65A: "Cuenta como <strong>2 Héroes</strong> y puede darte la victoria. Si es destruido, va al Basurero, <strong>ganas 1 Rabia y luego tu Medidor baja a Nivel 0</strong>.",
+      faq66Q: "Fuga en la Rutera — ¿de verdad cancela todo?",
+      faq66A: "Cancela <strong>cartas recién jugadas por un rival</strong>, Trampas recién reveladas e <strong>incluso efectos Imparables</strong>. Es la única defensa que le entra a lo Imparable.",
+      faq67Q: "Rabia — ¿cuándo NO gano Rabia?",
+      faq67A: "<strong>No</strong> ganas Rabia si tu Héroe es robado, movido, intercambiado o devuelto. Solo ganas Rabia si es <strong>destruido y enviado al Basurero</strong>.",
+      faq68Q: "Rabia — ¿cuánta gano si me destruyen varios Héroes de un golpe?",
+      faq68A: "Ganas <strong>1 Rabia por cada Héroe tuyo destruido</strong>: cada Héroe que cae genera la suya. Si un efecto como Cipactli o La Chancla Voladora te destruye 2 o 3 Héroes de un jalón, ganas 2 o 3 de Rabia. Pero el Medidor <strong>no puede pasar de Nivel 3</strong>: lo que sobre, se pierde. El coraje tiene tope.",
+      faq69Q: "¿Y Esta Rosa? — si mi Héroe revive al instante, ¿gano Rabia?",
+      faq69A: "<strong>No.</strong> Si revives a tu Héroe al instante con <strong>¿Y Esta Rosa?</strong>, <strong>no ganas Rabia</strong> por esa muerte: la Rabia se gana cuando el Héroe es destruido, y este nunca llegó a caer. Y ojo: <strong>revivir no cuenta como tu Héroe del turno</strong>. Ni con ¿Y Esta Rosa? ni con el Nivel 3 de Rabia: después de revivir, todavía puedes bajar 1 Héroe en tu turno.",
+      faq610Q: "El Nahual — ¿qué significa que «no puede ser protegido»?",
+      faq610A: "Significa que <strong>Ahorita No Joven</strong> y <strong>Reflejo de la Vaquita Marina</strong> no pueden defenderlo: nadie puede bloquear ni redirigir un ataque contra El Nahual. Pero <strong>sí puede ser revivido</strong>: ¿Y Esta Rosa? y el Nivel 3 de Rabia (Sana, Sana, Colita de Rana) sí lo traen de vuelta, porque <strong>revivir no es proteger</strong>.",
+      slogan1: "¡Controla tu Rabia,", slogan2: "domina la mesa!",
+      footerLine: "Manual Oficial de RABIA! · 2 a 6 jugadores · 15–25 minutos · 90 cartas · Hecho en la frontera, con coraje y con cariño. El que se enoja, pierde… bueno, aquí el que se enoja, gana Rabia.",
+      nav7: "7 · Póster para imprimir",
+      s7Title: "Póster oficial para imprimir",
+      s7Intro: "El manual completo en una sola hoja, listo para la mesa. Elige tu idioma: abre el póster en grande para verlo con calma o imprímelo y tenlo a la mano durante la partida, como acordeón de examen, pero cien por ciento legal.",
+      posterEsTitle: "Póster en español",
+      posterEnTitle: "Póster en inglés",
+      posterEsAlt: "Póster oficial de RABIA! en español: el manual completo en una hoja, con el ajolote navajero, las reglas, el sistema de Rabia y el glosario de las 90 cartas",
+      posterEnAlt: "Póster oficial de RABIA! en inglés: el manual completo en una hoja, con los nombres de las cartas en inglés, las reglas, el sistema de Rage y el glosario de las 90 cartas",
+      posterEsViewAria: "Ver el póster en español en grande",
+      posterEnViewAria: "Ver el póster en inglés en grande",
+      btnViewFull: "Ver en grande", btnViewFull2: "Ver en grande",
+      btnPrint: "Imprimir póster", btnPrint2: "Imprimir póster",
+      btnPrintLb: "Imprimir póster", btnCloseLb: "Cerrar ✕",
+      lbHint: "Para salir: toca «Cerrar ✕», toca fuera de la imagen o usa la tecla Esc.",
+      lbTitleEs: "Póster oficial — Español", lbTitleEn: "Póster oficial — Inglés",
+      posterNote: "Tip de mesa: «Imprimir póster» abre la imagen sola, en grande, para imprimirla o guardarla desde ahí, en hoja completa y sin márgenes si tu impresora lo permite. El póster en inglés conserva los nombres de las cartas en inglés, tal como se diseñó.",
+      simStatus: [
+        "Nivel 0 — tranquilo… por ahora. Respira, que esto apenas empieza.",
+        "Nivel 1 — Mal de Ojo listo: roba 2 cartas. Ya se te nota el coraje.",
+        "Nivel 2 — Un Levantón listo: destruye 1 Héroe rival. ¡Imparable, como tu mal humor!",
+        "Nivel 3 — ¡RABIA MÁXIMA! Sana, Sana, Colita de Rana: revive 1 Héroe y roba 2 cartas. Agárrense."
+      ],
+      simArtAlt: [
+        "",
+        "Nivel 1 de Rabia: el ojo turquesa en graffiti neón, con el texto LEVEL 1",
+        "Nivel 2 de Rabia: el puño cerrado decorado con flores en graffiti neón, con el texto LEVEL 2",
+        "Nivel 3 de Rabia: la cola larga amarilla enrollada en espiral en graffiti neón, con el texto LEVEL 3"
+      ],
+      simArtCap: [
+        "Nivel 0 — sin marca",
+        "Nivel 1 · El ojo — Mal de Ojo",
+        "Nivel 2 · El puño — Un Levantón",
+        "Nivel 3 · La cola larga — Sana, Sana, Colita de Rana"
+      ],
+      simArtEmpty: "Sin marca todavía: en Nivel 0 el muro está limpio y tú, tranquilo.",
+      simGainMax: "Tu Héroe cayó al Basurero y la Rabia llegó al máximo. Nivel 3: si lo gastas, revives un Héroe y robas 2 cartas. A cobrar, que para eso lloraste.",
+      simGain: "Tu Héroe fue destruido y enviado al Basurero: +1 Rabia. Vas en Nivel {n} y ya se te está subiendo el coraje a la cara.",
+      simSpend: [
+        "",
+        "Gastaste tu Rabia en Mal de Ojo: robaste 2 cartas. El Medidor vuelve a Nivel 0, zen otra vez.",
+        "¡UN LEVANTÓN! Destruiste 1 Héroe rival y nadie pudo cancelarlo. El Medidor vuelve a Nivel 0. Ni modo, compa.",
+        "SANA, SANA, COLITA DE RANA: reviviste 1 Héroe del Basurero a tu mesa y robaste 2 cartas. El Medidor vuelve a Nivel 0. Venganza servida."
+      ]
+    },
+    en: {
+      docTitle: "RABIA! Official Manual",
+      kicker: "Official Manual",
+      heroSub: "The borderlands card game: neighborhood heroes, legendary threats and lots and lots of <strong>rage</strong>. You're here to deal blows, lose with dignity (or without it), and take your revenge with a big grin. Play your heroes, take the hits, and be the first to rule the table.",
+      chipPlayers: "Players", chipPlayersVal: "2 to 6", chipDuration: "Length",
+      chipDeck: "Deck", chipDeckVal: "90 cards", chipWin: "To win", chipWinVal: "3 living Heroes",
+      objLab: "◎ Objective",
+      objText: "Be the first to have <strong>3 living Heroes on your board</strong>. The moment you do, <strong>you win immediately</strong>.",
+      posterAlt: "Official poster of the RABIA! manual: the axolotl holding two switchblades over the neon graffiti title and the manual's sections",
+      posterCap: "The official manual poster, in its mural version.",
+      tocAria: "Manual contents",
+      nav1: "1 · Setup", nav2: "2 · The turn", nav3: "3 · Rage System",
+      nav4: "4 · Terms", nav5: "5 · Card glossary", nav6: "6 · FAQ",
+      s1Title: "Setup",
+      s1Intro: "Five minutes to get ready, then start dealing blows. Fight over the comfy seat all you want — just not over the rules: this is everything you need before the first hand.",
+      s1Card1Title: "The deck and El Basurero",
+      s1L1: "Shuffle the <strong>90 cards</strong> and place them face down: that's the deck.",
+      s1L2: "Designate a space for <strong>El Basurero</strong> (the trash pile), where used cards, discarded cards and destroyed Heroes go.",
+      s1L3: "Deal <strong>5 cards</strong> to each player.",
+      s1Trap: "<strong>A Trap in your opening hand?</strong> It does not trigger. If a player is dealt a Trap, they must reveal it, set it aside, draw a replacement, return the Trap to the deck and shuffle.",
+      s1Card2Title: "Your Rage Meter",
+      s1MeterIntro: "Each player gets a double-sided Rage Meter card and places it at <strong style=\"color:var(--ink)\">Level 0</strong>. The card's position shows the level:",
+      s1Lvl0: "<strong>Level 0 —</strong> lay the card horizontally.",
+      s1Lvl12: "<strong>Level 1 or 2 —</strong> rotate the card so the current level points toward the other players.",
+      s1Lvl3: "<strong>Level 3 —</strong> flip the card to its back. Maximum rage.",
+      s1Start: "<strong>Who goes first?</strong> Everyone rolls a die and the <strong>lowest</strong> number starts. On a tie, roll again. Then play proceeds clockwise. <strong>No die?</strong> The angriest player starts.",
+      s2Title: "Turn structure",
+      s2Intro: "On your turn, follow these four phases in order. No skipping steps, no playing dumb, and no crying early: the official tears belong in the Rage phase.",
+      ph1Name: "Draw",
+      ph1Text: "Draw 1 card. If it's a normal card, it goes to your hand. If it's a <strong style=\"color:#fff\">Trap</strong>, reveal it and trigger it immediately. You can use <em>Fuga en la Rutera</em> to cancel it.",
+      ph2Name: "Action",
+      ph2Text: "Play any number of <strong style=\"color:#fff\">Threats, Legendaries and Support/Reaction</strong> cards if their effect is valid. You can attack several players in the same turn. You can only play <strong style=\"color:#fff\">1 Hero per turn</strong>.",
+      ph3Name: "Rage",
+      ph3Text: "You may spend your stored Rage to trigger an effect. See <a href=\"#rabia\">Section 3: Rage System</a>.",
+      ph4Name: "End",
+      ph4Text: "If you have more than <strong style=\"color:#fff\">7 cards</strong>, discard down to 7 into El Basurero. If the deck runs out, shuffle El Basurero to form a new deck.",
+      s3Title: "Rage System",
+      s3Intro: "Rage is the fury that builds up as you watch your Heroes fall. Losing them hurts… but that fury pays off — with interest, like a good neighborhood loan. And each level has its mark on the wall: Level 1, the eye; Level 2, the fist; Level 3, the long tail.",
+      r1ImgAlt: "Rage Level 1: a turquoise eye painted in neon graffiti on a black wall, with the text LEVEL 1 above it",
+      r2ImgAlt: "Rage Level 2: a clenched fist decorated with flowers, painted in neon graffiti on a black wall, with the text LEVEL 2 below it",
+      r3ImgAlt: "Rage Level 3: a frog's long tail, yellow and curled into a spiral, painted in neon graffiti on a black wall, with the text LEVEL 3 above it",
+      s3CardTitle: "How do you gain Rage?",
+      s3L1: "You gain <strong>1 Rage only when a Hero of yours on the board is destroyed</strong> and sent to El Basurero.",
+      s3L2: "You do <strong>NOT</strong> gain Rage if your Hero is stolen, moved, swapped, returned to your hand or discarded from your hand.",
+      s3L3: "The Meter <strong>cannot go past Level 3</strong>. When you spend your Rage, the Meter <strong>returns to Level 0</strong>.",
+      r1Lvl: "Level 1", r1Text: "Draw <strong style=\"color:#fff\">2 cards</strong>. Even mild fury helps.",
+      r2Lvl: "Level 2", r2Text: "Destroy <strong style=\"color:#fff\">1 rival Hero</strong>.", tagImparable: "Unstoppable",
+      r3Lvl: "Level 3", r3Text: "Revive <strong style=\"color:#fff\">1 Hero from El Basurero</strong> to your board and draw <strong style=\"color:#fff\">2 cards</strong>. Sweet, full revenge.",
+      simAria: "Rage Meter simulator",
+      simTitle: "Try the Meter",
+      simSub: "Tap the buttons like you're at the table: lose, pout a little, build it up and cash it in. Watch your Rage build up — and get spent.",
+      btnGain: "My Hero got destroyed (+1 Rage)", btnSpend: "Spend my Rage", btnReset: "Reset",
+      s4Title: "Key terms",
+      s4Intro: "Four words that decide games. Learn them before arguing with the table — whoever doesn't know them loses, and gets teased all night on top of it.",
+      term1Name: "Basic Attack",
+      term1Text: "The everyday attack: <strong style=\"color:#fff\">it can be blocked, canceled or resisted</strong>.",
+      term2Name: "Piercing Attack",
+      term2Text: "<strong style=\"color:#fff\">Ignores the target Hero's resistances and protections</strong>. It can be canceled, unless the card says Unstoppable.",
+      term3Name: "Unstoppable",
+      term3Text: "<strong style=\"color:#fff\">It cannot be canceled by normal defenses</strong>… but <em>Fuga en la Rutera</em> can cancel it. Nothing lasts forever.",
+      term4Name: "Global Effect",
+      term4Text: "Affects <strong style=\"color:#fff\">everyone, or the whole board</strong>. It is not a single-target attack, so it cannot be redirected like one.",
+      s5Title: "Card glossary",
+      s5Intro: "All 90 cards in the deck, type by type. The number next to each card is how many copies the deck includes. Filter by type or search by name or effect. Study them well — your rival already is, the sly one. Card names stay in Spanish — that's their flavor; their effects are translated here.",
+      glossToolsAria: "Filter cards by type",
+      filterAll: "All (90)", filterHeroe: "Hero · 28", filterAmenaza: "Threat · 30",
+      filterLegendario: "Legendary · 3", filterApoyo: "Support · 21", filterTrampa: "Trap · 8",
+      searchPh: "Search cards… try “chancla”, “destroy”, “cancel”",
+      searchAria: "Search cards by name or effect",
+      ajoloteAlt: "Finished Ajolote Navajero card (Switchblade Axolotl): a pink axolotl in neon graffiti holding a switchblade, in front of a trajinera boat, with a green frame, a sword symbol in the top-right corner, and its name and effect text at the bottom",
+      howtoTitle: "How to read a card",
+      howtoIntro: "Every card reads the same way, in four quick looks. The example is Ajolote Navajero, the face of the game:",
+      howto1Title: "Color frame",
+      howto1Text: "The border around the card tells you its type without reading a word. This one is green: it's a Hero.",
+      howto2Title: "Symbol",
+      howto2Text: "In the top-right corner, tinted in the type's color. Each figure announces the card's effect: this green sword is Attack. All 9 symbols are listed below.",
+      howto3Title: "Name",
+      howto3Text: "At the bottom, in large letters: SWITCHBLADE AXOLOTL. That's who you're bringing to the table.",
+      howto4Title: "Effect text",
+      howto4Text: "Below the name, under the colored line: what the card does. This one enters play destroying 1 rival Hero, with a Basic Attack.",
+      howtoKeyTitle: "Color key — the frame by type",
+      keyHeroe: "Green — Hero", keyAmenaza: "Red — Threat", keyApoyo: "Blue — Support",
+      keyLegendario: "Purple — Legendary", keyTrampa: "Yellow — Trap",
+      howtoSymsTitle: "The 9 symbols — what each one means",
+      howtoSymsNote: "The symbol is tinted in the color of the card's type. This is what each figure announces:",
+      symAttackAlt: "Sword symbol: Attack",
+      symAttackName: "Sword", symAttackText: "Attack or destroy rival Heroes.",
+      symDefenseAlt: "Shield symbol: Defense",
+      symDefenseName: "Shield", symDefenseText: "Block, protect or resist attacks.",
+      symLoseAlt: "Broken card symbol: Lose",
+      symLoseName: "Lose", symLoseFigure: "Broken card", symLoseText: "You lose a card, or make someone lose a card.",
+      symRestrictAlt: "Prohibited symbol: Restriction",
+      symRestrictName: "Prohibited", symRestrictText: "Prevent a player from taking an action; cancel.",
+      symVisionAlt: "Eye symbol: Vision",
+      symVisionName: "Eye", symVisionText: "Look at or reveal cards.",
+      symRecoveryAlt: "Plus sign symbol: Recovery",
+      symRecoveryName: "Plus sign", symRecoveryText: "Gain, steal or recover Heroes and cards.",
+      symManualAlt: "Book symbol: Manual",
+      symManualName: "Book", symManualText: "Read the manual for complete information.",
+      symSpecialAlt: "Star symbol: Special",
+      symSpecialName: "Star", symSpecialText: "Special or legendary effects.",
+      symTrapAlt: "Caution symbol, a triangle with an exclamation mark: Trap",
+      symTrapName: "Caution", symTrapText: "Traps that trigger immediately.",
+      typeHeroe: "Hero type", count28: "28 cards",
+      ruleHeroe: "You can only play <strong style=\"color:#fff\">1 per turn</strong>. You need <strong style=\"color:#fff\">3 on your board</strong> to win.",
+      cardAjolote: "When played: destroy 1 rival Hero on the board. <span class=\"kw\">Basic Attack.</span>",
+      cardCacomixtle: "When played: steal 1 random card from a rival's hand.",
+      namePterodactilo: "The Juárez Pterodactyl",
+      cardQuetzal: "When played: look at 3 cards from the deck. Take 1; return the other 2 on top in any order.",
+      cardCalupoh: "When played: if you have fewer Heroes than a rival, draw 2 cards.",
+      cardXolo: "Resists 1 Basic Attack and turns sideways. If it takes another Basic Attack while turned, it is destroyed.",
+      cardJaguar: "When played: take 1 card from El Basurero and put it in your hand.",
+      cardNahual: "<span class=\"kw\">Counts as 2 Heroes.</span> To play it, discard 1 Hero. If it dies, your Rage drops to 0. It cannot be protected.",
+      typeAmenaza: "Threat type", count30: "30 cards",
+      ruleAmenaza: "Use them on your turn to attack or control. <strong style=\"color:#fff\">No limit per turn.</strong>",
+      cardJauria: "Destroy 1 rival Hero on the board. <span class=\"kw\">Basic Attack.</span> Tiny, but that's fourteen cards of fury.",
+      cardPolilla: "Destroy 1 rival Hero on the board. <span class=\"kw\">Piercing Attack.</span>",
+      cardMordida: "Choose 1 player: they discard 2 random cards from their hand.",
+      cardPolitico: "Choose 1 rival Hero on the board and move it to your board. Like a good politician, it switches sides.",
+      cardEmpacho: "Choose 1 player: they cannot play Heroes on their next turn.",
+      cardChupacabras: "Destroy 2 rival Heroes on the board. <span class=\"kw\">Unstoppable.</span>",
+      typeLegendario: "Legendary type", count3: "3 cards",
+      ruleLegendario: "One-of-a-kind cards of catastrophic power. <strong style=\"color:#fff\">Few, horrible and beautiful.</strong>",
+      cardCipactli: "<span class=\"kw\">Global Effect:</span> everyone destroys 1 of their own Heroes on the board, including you.",
+      cardQuetzalcoatl: "Choose 1 rival: destroy 1 of their Heroes and they discard 3 random cards. <span class=\"kw\">Unstoppable.</span>",
+      cardChancla: "<span class=\"kw\">Global Effect:</span> destroy all Heroes on the board, including yours. The chancla forgives no one.",
+      typeApoyo: "Support & Reaction type", count21: "21 cards",
+      ruleApoyo: "They can be played <strong style=\"color:#fff\">in response</strong> to attacks, effects, deaths or Traps, as each card states.",
+      cardAhorita: "Cancel 1 Basic Attack aimed at you.",
+      cardReflejo: "Cancel 1 single-target attack against you and redirect it to another player.",
+      cardRosa: "When a Hero of yours dies: revive it instantly on your board.",
+      cardFuga: "Cancel 1 card just played by a rival, <span class=\"kw\">even a Legendary or a revealed Trap</span>. The fiercest card in the deck.",
+      typeTrampa: "Trap type", count8: "8 cards",
+      ruleTrampa: "If you draw a Trap from the deck, you must <strong style=\"color:#fff\">reveal it immediately</strong>. Its effect happens right away.",
+      cardIntercambio: "Swap your hand with the player who has the most Heroes on the board. On a tie, you choose.",
+      cardMoctezuma: "Everyone passes their entire hand to the player on their left.",
+      cardCruda: "Discard your entire hand to El Basurero and draw 4 cards.",
+      cardSueno: "Destroy 1 of your own Heroes on the board. The dream sometimes comes at a price.",
+      noResults: "No card matches that filter. Try another name or effect.",
+      s6Title: "Rule clarifications / FAQ",
+      s6Intro: "The questions that always come up mid-game, settled once and for all, so the only fight is with cards, not with shouting. Tap a question to see its answer.",
+      faq61Q: "Ahorita No Joven — what exactly does it cancel?",
+      faq61A: "It only cancels <strong>Basic Attacks aimed at you</strong>, like Ajolote Navajero or Jauría de Chihuahuas. It does <strong>not</strong> cancel Piercing Attacks, Unstoppable effects, Legendaries, Traps or Global Effects.",
+      faq62Q: "Xolo de Azotea — how does its resistance work?",
+      faq62A: "It resists <strong>1 Basic Attack and turns sideways</strong>. If it takes another Basic Attack while turned, it is destroyed. Piercing Attacks, Unstoppable effects, Legendaries and Traps <strong>ignore its resistance</strong>. <span class=\"punch\">Sorry, Firulais.</span>",
+      faq63Q: "Reflejo de la Vaquita Marina — what can it redirect?",
+      faq63A: "It cancels and redirects <strong>single-target attacks against you</strong>. It does cancel Basic and Piercing Attacks. It does <strong>not</strong> cancel Unstoppable effects, Traps, Global Effects or cards that aren't attacks.",
+      faq64Q: "Empacho Severo — what CAN I do while empachado?",
+      faq64A: "On your next turn you <strong>cannot play Heroes</strong>. You can still draw, play Threats, Legendaries and Support/Reaction, activate Rage and discard at the end. <span class=\"punch\">You're stuffed, not dead.</span>",
+      faq65Q: "El Nahual — what happens when it dies?",
+      faq65A: "It counts as <strong>2 Heroes</strong> and can win you the game. If it is destroyed, it goes to El Basurero, <strong>you gain 1 Rage and then your Meter drops to Level 0</strong>.",
+      faq66Q: "Fuga en la Rutera — does it really cancel everything?",
+      faq66A: "It cancels <strong>cards just played by a rival</strong>, freshly revealed Traps and <strong>even Unstoppable effects</strong>. It's the only defense that stands up to the Unstoppable.",
+      faq67Q: "Rage — when do I NOT gain Rage?",
+      faq67A: "You do <strong>not</strong> gain Rage if your Hero is stolen, moved, swapped or returned. You only gain Rage if it is <strong>destroyed and sent to El Basurero</strong>.",
+      faq68Q: "Rage — how much do I gain if several of my Heroes are destroyed at once?",
+      faq68A: "You gain <strong>1 Rage for each of your Heroes destroyed</strong>: every fallen Hero generates its own. If an effect like Cipactli or La Chancla Voladora destroys 2 or 3 of your Heroes at once, you gain 2 or 3 Rage. But the Meter <strong>cannot go past Level 3</strong>: any excess is lost. Fury has a cap.",
+      faq69Q: "¿Y Esta Rosa? — if my Hero revives instantly, do I gain Rage?",
+      faq69A: "<strong>No.</strong> If you revive your Hero instantly with <strong>¿Y Esta Rosa?</strong>, you <strong>do not gain Rage</strong> for that death: Rage is gained when a Hero is destroyed, and this one never actually fell. And note: <strong>reviving does not count as your Hero for the turn</strong>. Not with ¿Y Esta Rosa?, and not with Rage Level 3 either: after reviving, you can still play 1 Hero on your turn.",
+      faq610Q: "El Nahual — what does “cannot be protected” mean?",
+      faq610A: "It means <strong>Ahorita No Joven</strong> and <strong>Reflejo de la Vaquita Marina</strong> cannot defend it: nobody can block or redirect an attack against El Nahual. But <strong>it can be revived</strong>: ¿Y Esta Rosa? and Rage Level 3 (Sana, Sana, Colita de Rana) do bring it back, because <strong>reviving is not protecting</strong>.",
+      slogan1: "Control your Rage,", slogan2: "rule the table!",
+      footerLine: "RABIA! Official Manual · 2 to 6 players · 15–25 minutes · 90 cards · Made on the border, with fury and with love. Whoever gets angry loses… well, here whoever gets angry gains Rage.",
+      nav7: "7 · Printable poster",
+      s7Title: "Official poster to print",
+      s7Intro: "The whole manual on a single sheet, ready for the table. Pick your language: open the poster large to read it at ease, or print it and keep it at hand during the game — like an exam cheat sheet, but one hundred percent legal.",
+      posterEsTitle: "Poster in Spanish",
+      posterEnTitle: "Poster in English",
+      posterEsAlt: "Official RABIA! poster in Spanish: the complete manual on one sheet, with the switchblade axolotl, the rules, the Rage system and the 90-card glossary",
+      posterEnAlt: "Official RABIA! poster in English: the complete manual on one sheet, with the card names in English, the rules, the Rage system and the 90-card glossary",
+      posterEsViewAria: "View the Spanish poster large",
+      posterEnViewAria: "View the English poster large",
+      btnViewFull: "View large", btnViewFull2: "View large",
+      btnPrint: "Print poster", btnPrint2: "Print poster",
+      btnPrintLb: "Print poster", btnCloseLb: "Close ✕",
+      lbHint: "To exit: tap “Close ✕”, tap outside the image, or press the Esc key.",
+      lbTitleEs: "Official poster — Spanish", lbTitleEn: "Official poster — English",
+      posterNote: "Table tip: “Print poster” opens the image on its own, full size, so you can print or save it from there — full-page, borderless if your printer allows it. The English poster keeps the card names in English, just as it was designed.",
+      simStatus: [
+        "Level 0 — calm… for now. Breathe, this is just getting started.",
+        "Level 1 — Mal de Ojo ready: draw 2 cards. The fury is showing.",
+        "Level 2 — Un Levantón ready: destroy 1 rival Hero. Unstoppable, just like your bad mood!",
+        "Level 3 — MAXIMUM RAGE! Sana, Sana, Colita de Rana: revive 1 Hero and draw 2 cards. Hold on tight."
+      ],
+      simArtAlt: [
+        "",
+        "Rage Level 1: the turquoise eye in neon graffiti, with the text LEVEL 1",
+        "Rage Level 2: the clenched fist decorated with flowers in neon graffiti, with the text LEVEL 2",
+        "Rage Level 3: the long yellow tail curled into a spiral in neon graffiti, with the text LEVEL 3"
+      ],
+      simArtCap: [
+        "Level 0 — no mark yet",
+        "Level 1 · The eye — Mal de Ojo",
+        "Level 2 · The fist — Un Levantón",
+        "Level 3 · The long tail — Sana, Sana, Colita de Rana"
+      ],
+      simArtEmpty: "No mark yet: at Level 0 the wall is clean and so are you — calm.",
+      simGainMax: "Your Hero fell into El Basurero and your Rage maxed out. Level 3: spend it to revive a Hero and draw 2 cards. Time to collect — that's what the tears were for.",
+      simGain: "Your Hero was destroyed and sent to El Basurero: +1 Rage. You're at Level {n} and the fury is written all over your face.",
+      simSpend: [
+        "",
+        "You spent your Rage on Mal de Ojo: you drew 2 cards. The Meter returns to Level 0, zen again.",
+        "UN LEVANTÓN! You destroyed 1 rival Hero and nobody could cancel it. The Meter returns to Level 0. Sorry, buddy.",
+        "SANA, SANA, COLITA DE RANA: you revived 1 Hero from El Basurero to your board and drew 2 cards. The Meter returns to Level 0. Revenge, served."
+      ]
+    }
+  };
+
+  var lang = "es";
+  var simLevel = 0;
+  var lastSimMsg = null; /* {kind:'status'|'gain'|'spend', level:n} */
+
+  var textKeys = ["kicker","heroSub","chipPlayers","chipPlayersVal","chipDuration","chipDeck","chipDeckVal","chipWin","chipWinVal","objLab","objText","posterCap","nav1","nav2","nav3","nav4","nav5","nav6","s1Title","s1Intro","s1Card1Title","s1L1","s1L2","s1L3","s1Trap","s1Card2Title","s1MeterIntro","s1Lvl0","s1Lvl12","s1Lvl3","s1Start","s2Title","s2Intro","ph1Name","ph1Text","ph2Name","ph2Text","ph3Name","ph3Text","ph4Name","ph4Text","s3Title","s3Intro","s3CardTitle","s3L1","s3L2","s3L3","r1Lvl","r1Text","r2Lvl","r2Text","tagImparable","r3Lvl","r3Text","simTitle","simSub","btnGain","btnSpend","btnReset","s4Title","s4Intro","term1Name","term1Text","term2Name","term2Text","term3Name","term3Text","term4Name","term4Text","s5Title","s5Intro","filterAll","filterHeroe","filterAmenaza","filterLegendario","filterApoyo","filterTrampa","howtoTitle","howtoIntro","howto1Title","howto1Text","howto2Title","howto2Text","howto3Title","howto3Text","howto4Title","howto4Text","howtoKeyTitle","keyHeroe","keyAmenaza","keyApoyo","keyLegendario","keyTrampa","howtoSymsTitle","howtoSymsNote","symAttackName","symAttackText","symDefenseName","symDefenseText","symLoseName","symLoseFigure","symLoseText","symRestrictName","symRestrictText","symVisionName","symVisionText","symRecoveryName","symRecoveryText","symManualName","symManualText","symSpecialName","symSpecialText","symTrapName","symTrapText","typeHeroe","count28","ruleHeroe","cardAjolote","cardCacomixtle","namePterodactilo","cardQuetzal","cardCalupoh","cardXolo","cardJaguar","cardNahual","typeAmenaza","count30","ruleAmenaza","cardJauria","cardPolilla","cardMordida","cardPolitico","cardEmpacho","cardChupacabras","typeLegendario","count3","ruleLegendario","cardCipactli","cardQuetzalcoatl","cardChancla","typeApoyo","count21","ruleApoyo","cardAhorita","cardReflejo","cardRosa","cardFuga","typeTrampa","count8","ruleTrampa","cardIntercambio","cardMoctezuma","cardCruda","cardSueno","noResults","s6Title","s6Intro","faq61Q","faq61A","faq62Q","faq62A","faq63Q","faq63A","faq64Q","faq64A","faq65Q","faq65A","faq66Q","faq66A","faq67Q","faq67A","faq68Q","faq68A","faq69Q","faq69A","faq610Q","faq610A","slogan1","slogan2","footerLine","nav7","s7Title","s7Intro","posterEsTitle","posterEnTitle","btnViewFull","btnViewFull2","btnPrint","btnPrint2","btnPrintLb","btnCloseLb","lbHint","posterNote"];
+
+  var textEls = {}, altEls = {}, ariaEls = {}, phEls = {};
+  Array.prototype.forEach.call(document.querySelectorAll("[data-i18n]"), function(el){ textEls[el.getAttribute("data-i18n")] = el; });
+  Array.prototype.forEach.call(document.querySelectorAll("[data-i18n-alt]"), function(el){ altEls[el.getAttribute("data-i18n-alt")] = el; });
+  Array.prototype.forEach.call(document.querySelectorAll("[data-i18n-aria]"), function(el){ ariaEls[el.getAttribute("data-i18n-aria")] = el; });
+  Array.prototype.forEach.call(document.querySelectorAll("[data-i18n-ph]"), function(el){ phEls[el.getAttribute("data-i18n-ph")] = el; });
+
+  /* ---------- Simulador de Rabia ---------- */
+  var eyes = [document.getElementById('eye1'), document.getElementById('eye2'), document.getElementById('eye3')];
+  var status = document.getElementById('simStatus');
+  var msg = document.getElementById('simMsg');
+  var btnGain = document.getElementById('btnGain');
+  var btnSpend = document.getElementById('btnSpend');
+  var btnReset = document.getElementById('btnReset');
+  var simArt = document.getElementById('simArt');
+  var simArtImg = document.getElementById('simArtImg');
+  var simArtEmpty = document.getElementById('simArtEmpty');
+  var simArtEmptyText = document.getElementById('simArtEmptyText');
+  var simArtCap = document.getElementById('simArtCap');
+  var simArtCapText = document.getElementById('simArtCapText');
+  var SIM_ART_SRC = [null, 'img02.jpg', 'img03.jpg', 'img04.jpg'];
+
+  function simMsgText(){
+    var d = I18N[lang];
+    if(!lastSimMsg) return "";
+    if(lastSimMsg.kind === 'gain'){
+      return lastSimMsg.level === 3 ? d.simGainMax : d.simGain.replace("{n}", lastSimMsg.level);
+    }
+    if(lastSimMsg.kind === 'spend') return d.simSpend[lastSimMsg.level];
+    return "";
+  }
+  function renderSim(){
+    eyes.forEach(function(eye, i){
+      eye.className = 'sim-eye' + (simLevel > i ? ' on' + simLevel : '');
+    });
+    /* Imagen del nivel actual: ojo (1), puño (2) o cola larga (3) */
+    var dArt = I18N[lang];
+    if(simArt && simArtImg && simArtEmpty){
+      simArt.className = 'sim-art' + (simLevel > 0 ? ' r' + simLevel : '');
+      if(simLevel === 0){
+        simArtImg.hidden = true;
+        simArtEmpty.style.display = '';
+        if(simArtEmptyText && dArt.simArtEmpty) simArtEmptyText.textContent = dArt.simArtEmpty;
+      } else {
+        simArtImg.src = SIM_ART_SRC[simLevel];
+        simArtImg.alt = dArt.simArtAlt ? dArt.simArtAlt[simLevel] : '';
+        simArtImg.hidden = false;
+        simArtEmpty.style.display = 'none';
+      }
+      if(simArtCap && simArtCapText && dArt.simArtCap){
+        simArtCap.className = 'sim-art-cap' + (simLevel > 0 ? ' c' + simLevel : '');
+        simArtCapText.textContent = dArt.simArtCap[simLevel];
+      }
+    }
+    status.textContent = I18N[lang].simStatus[simLevel];
+    btnGain.disabled = simLevel >= 3;
+    btnSpend.disabled = simLevel === 0;
+    var t = simMsgText();
+    msg.textContent = t;
+    msg.classList.toggle('box', !!t);
+  }
+  btnGain.addEventListener('click', function(){
+    if(simLevel < 3){
+      simLevel++;
+      lastSimMsg = {kind:'gain', level: simLevel};
+      renderSim();
+    }
+  });
+  btnSpend.addEventListener('click', function(){
+    if(simLevel === 0) return;
+    lastSimMsg = {kind:'spend', level: simLevel};
+    simLevel = 0;
+    renderSim();
+  });
+  btnReset.addEventListener('click', function(){
+    simLevel = 0;
+    lastSimMsg = null;
+    renderSim();
+  });
+
+  /* ---------- Idioma / Language ---------- */
+  var btnEs = document.getElementById('langEs');
+  var btnEn = document.getElementById('langEn');
+  function setLang(next){
+    if(next === lang && document.documentElement.lang === next) { renderSim(); return; }
+    lang = next;
+    var d = I18N[lang];
+    document.documentElement.lang = lang;
+    document.title = d.docTitle;
+    textKeys.forEach(function(k){ if(textEls[k] && d[k] != null) textEls[k].innerHTML = d[k]; });
+    Object.keys(altEls).forEach(function(k){ if(d[k] != null) altEls[k].setAttribute('alt', d[k]); });
+    Object.keys(ariaEls).forEach(function(k){ if(d[k] != null) ariaEls[k].setAttribute('aria-label', d[k]); });
+    Object.keys(phEls).forEach(function(k){ if(d[k] != null) phEls[k].setAttribute('placeholder', d[k]); });
+    btnEs.setAttribute('aria-pressed', lang === 'es' ? 'true' : 'false');
+    btnEn.setAttribute('aria-pressed', lang === 'en' ? 'true' : 'false');
+    if(typeof lightbox !== 'undefined' && lightbox && lightbox.classList.contains('open')){
+      var cur = POSTERS[currentPoster];
+      lbTitle.textContent = d[cur.titleKey];
+      lbImg.alt = d[cur.altKey];
+    }
+    renderSim();
+    applyFilter();
+  }
+  btnEs.addEventListener('click', function(){ setLang('es'); });
+  btnEn.addEventListener('click', function(){ setLang('en'); });
+  renderSim();
+
+  /* ---------- Filtro del glosario ---------- */
+  var filterBtns = Array.prototype.slice.call(document.querySelectorAll('.filter-btn'));
+  var searchInput = document.getElementById('glossSearch');
+  var blocks = Array.prototype.slice.call(document.querySelectorAll('.type-block'));
+  var gcards = Array.prototype.slice.call(document.querySelectorAll('.gcard'));
+  var noResults = document.getElementById('noResults');
+  var activeFilter = 'all';
+
+  function normalize(s){
+    return (s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  }
+  function applyFilter(){
+    var q = normalize(searchInput.value.trim());
+    var visibleCount = 0;
+    gcards.forEach(function(card){
+      var typeOk = activeFilter === 'all' || card.getAttribute('data-type') === activeFilter;
+      var textOk = !q || normalize(card.textContent).indexOf(q) !== -1;
+      var show = typeOk && textOk;
+      card.style.display = show ? '' : 'none';
+      if(show) visibleCount++;
+    });
+    blocks.forEach(function(block){
+      var anyVisible = Array.prototype.some.call(block.querySelectorAll('.gcard'), function(c){ return c.style.display !== 'none'; });
+      block.style.display = anyVisible ? '' : 'none';
+    });
+    noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+  }
+  filterBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      filterBtns.forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      activeFilter = btn.getAttribute('data-filter');
+      applyFilter();
+    });
+  });
+  searchInput.addEventListener('input', applyFilter);
+
+  /* ---------- Pósteres: visor grande en página e impresión ---------- */
+  var POSTERS = {
+    es: { src: 'img15.jpg', full: 'img16.png', titleKey: 'lbTitleEs', altKey: 'posterEsAlt' },
+    en: { src: 'img17.jpg', full: 'img18.png', titleKey: 'lbTitleEn', altKey: 'posterEnAlt' }
+  };
+  var lightbox = document.getElementById('posterLightbox');
+  var lbImg = document.getElementById('lbImg');
+  var lbTitle = document.getElementById('lbTitle');
+  var lbPrint = document.getElementById('lbPrint');
+  var lbClose = document.getElementById('lbClose');
+  var currentPoster = 'es';
+  var lastFocus = null;
+
+  function openPoster(which){
+    var p = POSTERS[which];
+    if(!p) return;
+    currentPoster = which;
+    lastFocus = document.activeElement;
+    lbImg.src = p.src;
+    lbImg.alt = I18N[lang][p.altKey];
+    lbPrint.href = p.full;
+    lbTitle.textContent = I18N[lang][p.titleKey];
+    /* Visor en página: NO se usa la API de pantalla completa nativa,
+       que en el webview de la app dejaba la pantalla en negro y sin salida. */
+    lightbox.hidden = false;
+    lightbox.classList.add('open');
+    var scroller = lightbox.querySelector('.lightbox-scroll');
+    if(scroller) scroller.scrollTop = 0;
+    lbClose.focus();
+  }
+  function closePoster(){
+    lightbox.classList.remove('open');
+    lightbox.hidden = true;
+    if(lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('[data-poster-open]'), function(btn){
+    btn.addEventListener('click', function(){ openPoster(btn.getAttribute('data-poster-open')); });
+  });
+  lbClose.addEventListener('click', closePoster);
+  /* Tocar fuera de la imagen (el fondo o el área de scroll) también cierra */
+  lightbox.addEventListener('click', function(e){
+    if(e.target === lightbox) closePoster();
+  });
+  var lbScroll = lightbox.querySelector('.lightbox-scroll');
+  if(lbScroll){
+    lbScroll.addEventListener('click', function(e){ if(e.target === lbScroll) closePoster(); });
+  }
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && lightbox.classList.contains('open')) closePoster();
+  });
+
+  /* ---------- Índice: se esconde al bajar, vuelve completo al subir ---------- */
+  var tocNav = document.querySelector('nav.toc');
+  if(tocNav){
+    var tocLastY = window.pageYOffset || document.documentElement.scrollTop || 0;
+    var tocTicking = false;
+    /* Posición natural del índice en el documento (justo después del héroe).
+       Mientras no se llegue hasta ahí, el índice va en el flujo de la página
+       y debe verse siempre: si se escondiera antes, al llegar a su lugar
+       solo quedaría el hueco vacío. Solo puede esconderse una vez que ya
+       quedó pegado arriba (sticky), es decir, cuando ya fue visible. */
+    var tocHomeY = tocNav.getBoundingClientRect().top + tocLastY;
+    tocNav.classList.remove('toc-hidden');
+    function updateToc(){
+      var y = window.pageYOffset || document.documentElement.scrollTop || 0;
+      var dy = y - tocLastY;
+      var rect = tocNav.getBoundingClientRect();
+      if(!tocNav.classList.contains('toc-hidden') && rect.top > 2){
+        /* En flujo y visible: su posición real es esta. Se sigue aquí por si
+           el héroe cambia de altura al cargar imágenes o fuentes. */
+        tocHomeY = rect.top + y;
+      }
+      var pastNav = y >= tocHomeY - 1;
+      var docH = document.documentElement.scrollHeight || document.body.scrollHeight;
+      var nearBottom = window.innerHeight + y >= docH - 60;
+      if(!pastNav || y <= 140 || dy < -4 || nearBottom){
+        /* Antes del índice, cerca del inicio, al final, o en cuanto se sube: índice completo */
+        tocNav.classList.remove('toc-hidden');
+      } else if(dy > 6 && y > 260){
+        /* Bajando con intención y ya pasado el índice (pegado arriba): se esconde */
+        tocNav.classList.add('toc-hidden');
+      }
+      tocLastY = y;
+      tocTicking = false;
+    }
+    window.addEventListener('scroll', function(){
+      if(!tocTicking){
+        tocTicking = true;
+        window.requestAnimationFrame(updateToc);
+      }
+    }, {passive:true});
+    /* Si el foco entra al índice (teclado), siempre se muestra completo */
+    tocNav.addEventListener('focusin', function(){
+      tocNav.classList.remove('toc-hidden');
+    });
+  }
+})();
+</script>
 </body>
 </html>
