@@ -173,35 +173,12 @@
   .tag{display:inline-block; font-size:.75rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; padding:3px 9px; border-radius:999px; background:rgba(255,255,255,.1); border:1px solid var(--line)}
   .tag.imp{background:rgba(255,46,154,.18); border-color:var(--pink); color:#ffc2de}
 
-  .sim{margin-top:18px; border:2px solid var(--pink); border-radius:var(--radius); padding:20px; background:linear-gradient(160deg, rgba(255,46,154,.08), rgba(0,0,0,0) 55%), var(--panel)}
-  .sim h3{font-family:"Barlow", system-ui, sans-serif; font-weight:800; margin:0 0 4px}
-  .sim .sub{color:var(--muted); margin:0 0 16px}
-  .sim-art{margin:0 auto 16px; max-width:430px; border-radius:14px; overflow:hidden; border:2px solid var(--line); background:#0b0b12}
-  .sim-art img{display:block; width:100%; height:auto; aspect-ratio:2/3; object-fit:contain; object-position:center}
-  .sim-art img[hidden]{display:none}
-  .sim-art-empty{
-    aspect-ratio:2/3; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px;
-    text-align:center; padding:18px; color:var(--muted);
-    background:radial-gradient(420px 200px at 50% 40%, rgba(255,230,0,.07), transparent 65%);
-  }
-  .sim-art-empty .big{font-family:"Barlow", system-ui, sans-serif; font-weight:800; font-size:2.6rem; line-height:1; color:#3d3d4d}
-  .sim-art-empty p{margin:0; font-weight:600; max-width:38ch}
-  .sim-art-cap{
-    display:flex; align-items:center; gap:8px; padding:10px 14px; font-weight:800; font-size:.98rem;
-    background:rgba(255,255,255,.05); border-top:1.5px solid var(--line);
-  }
-  .sim-art-cap .dot{flex:0 0 auto; width:14px; height:14px; border-radius:50%; background:#3d3d4d}
-  .sim-art-cap.c1 .dot{background:var(--yellow); box-shadow:0 0 10px rgba(255,230,0,.7)}
-  .sim-art-cap.c2 .dot{background:var(--pink2); box-shadow:0 0 10px rgba(255,77,109,.7)}
-  .sim-art-cap.c3 .dot{background:var(--violet); box-shadow:0 0 10px rgba(199,125,255,.75)}
-  .sim-meter{display:flex; align-items:center; gap:14px; flex-wrap:wrap}
-  .sim-eyes{display:flex; gap:8px}
-  .sim-eye{width:52px; height:52px; border-radius:50%; border:2.5px solid var(--line); display:grid; place-items:center; font-family:"Barlow", system-ui, sans-serif; font-weight:800; font-size:1.15rem; color:var(--muted); background:#0b0b12; transition:all .25s}
-  .sim-eye.on1{background:var(--yellow); border-color:var(--yellow); color:#0a0a0a; box-shadow:0 0 18px rgba(255,230,0,.55)}
-  .sim-eye.on2{background:var(--pink2); border-color:var(--pink2); color:#fff; box-shadow:0 0 18px rgba(255,77,109,.6)}
-  .sim-eye.on3{background:var(--violet); border-color:var(--violet); color:#fff; box-shadow:0 0 18px rgba(199,125,255,.65)}
-  .sim-status{font-weight:800; font-size:1.05rem}
-  .sim-btns{display:flex; flex-wrap:wrap; gap:10px; margin-top:16px}
+  /* medidor digital: bloque QR */
+  .meter-qr{margin-top:18px; border:2px solid var(--pink); border-radius:var(--radius); padding:20px; background:linear-gradient(160deg, rgba(255,46,154,.08), rgba(0,0,0,0) 55%), var(--panel); text-align:center}
+  .meter-qr h3{font-family:"Barlow", system-ui, sans-serif; font-weight:800; margin:0 0 4px}
+  .meter-qr .sub{color:var(--muted); margin:0 auto 16px; max-width:52ch}
+  .meter-qr img{display:block; margin:0 auto 18px; width:min(300px, 100%); height:auto; border-radius:14px}
+  .meter-qr .btn{display:inline-block; text-decoration:none}
   .btn{
     font-family:"Barlow"; font-weight:800; font-size:1rem; border-radius:12px; padding:12px 18px; cursor:pointer;
     border:2px solid var(--line); background:rgba(255,255,255,.05); color:var(--ink);
@@ -210,10 +187,6 @@
   .btn.primary{background:var(--pink); border-color:var(--pink); color:#fff}
   .btn.spend{background:var(--yellow); border-color:var(--yellow); color:#0a0a0a}
   .btn:disabled{opacity:.4; cursor:not-allowed}
-  .sim-msg{margin-top:14px; min-height:1.5em; font-weight:600; color:#ffd7ec}
-  .sim-msg:empty{display:none}
-  .sim-msg.box{background:rgba(0,0,0,.35); border:1.5px dashed var(--pink); border-radius:12px; padding:12px 14px}
-
   /* terms */
   .terms{display:grid; grid-template-columns:1fr 1fr; gap:16px}
   .term{border-radius:var(--radius); padding:18px 20px; background:var(--panel); border-left:6px solid var(--line)}
@@ -524,32 +497,12 @@
       </article>
     </div>
 
-    <!-- Simulador -->
-    <div class="sim" data-i18n-aria="simAria" aria-label="Simulador del Medidor de Rabia">
-      <h3 data-i18n="simTitle">Prueba el Medidor</h3>
-      <p class="sub" data-i18n="simSub">Toca los botones como si estuvieras en la mesa: pierde, llora poquito, acumula y cobra. Mira cómo sube — y cómo se gasta — tu Rabia.</p>
-      <figure class="sim-art" id="simArt">
-        <img id="simArtImg" src="img02.jpg" width="1080" height="1620" alt="" hidden />
-        <div class="sim-art-empty" id="simArtEmpty">
-          <span class="big" aria-hidden="true">0</span>
-          <p id="simArtEmptyText">Sin marca todavía: en Nivel 0 el muro está limpio y tú, tranquilo.</p>
-        </div>
-        <figcaption class="sim-art-cap" id="simArtCap"><span class="dot" aria-hidden="true"></span><span id="simArtCapText">Nivel 0 — sin marca</span></figcaption>
-      </figure>
-      <div class="sim-meter">
-        <div class="sim-eyes" aria-hidden="true">
-          <span class="sim-eye" id="eye1">1</span>
-          <span class="sim-eye" id="eye2">2</span>
-          <span class="sim-eye" id="eye3">3</span>
-        </div>
-        <span class="sim-status" id="simStatus">Nivel 0 — tranquilo… por ahora.</span>
-      </div>
-      <div class="sim-btns">
-        <button class="btn primary" id="btnGain" type="button" data-i18n="btnGain">Destruyeron a mi Héroe (+1 Rabia)</button>
-        <button class="btn spend" id="btnSpend" type="button" data-i18n="btnSpend" disabled>Gastar mi Rabia</button>
-        <button class="btn" id="btnReset" type="button" data-i18n="btnReset">Reiniciar</button>
-      </div>
-      <p class="sim-msg" id="simMsg" role="status" aria-live="polite"></p>
+    <!-- Medidor digital -->
+    <div class="meter-qr" data-i18n-aria="meterQrAria" aria-label="Medidor de Rabia digital">
+      <h3 data-i18n="meterQrTitle">Medidor de Rabia digital</h3>
+      <p class="sub" data-i18n="meterQrSub">Escanea el código y úsalo en tu celular durante la partida. Cada jugador abre el suyo.</p>
+      <img src="img05.png" width="1350" height="1520" data-i18n-alt="meterQrAlt" alt="Código QR con estilo RABIA! y el ojo integrado en los módulos, con el letrero RAGE METER, que lleva al Medidor de Rabia digital" loading="lazy" />
+      <a class="btn primary" href="https://luiszenit01.github.io/medidor-rabia/" target="_blank" rel="noopener" data-i18n="meterQrBtn">Abrir el Medidor de Rabia</a>
     </div>
   </section>
 
@@ -597,7 +550,7 @@
         <h3 class="howto-title" data-i18n="howtoTitle">Cómo leer una carta</h3>
         <p class="howto-intro" data-i18n="howtoIntro">Todas se leen igual, en cuatro vistazos. El ejemplo es el Ajolote Navajero, la cara del juego:</p>
         <div class="howto-visual">
-          <img src="img05.jpg" data-i18n-alt="ajoloteAlt" alt="Carta terminada del Ajolote Navajero (Switchblade Axolotl): ajolote rosa en graffiti neón con una navaja, frente a una trajinera, con marco verde, símbolo de espada en la esquina superior derecha, nombre y texto del efecto abajo" loading="lazy" />
+          <img src="img06.jpg" data-i18n-alt="ajoloteAlt" alt="Carta terminada del Ajolote Navajero (Switchblade Axolotl): ajolote rosa en graffiti neón con una navaja, frente a una trajinera, con marco verde, símbolo de espada en la esquina superior derecha, nombre y texto del efecto abajo" loading="lazy" />
           <span class="zone zone-frame" aria-hidden="true"></span>
           <span class="zone zone-symbol" aria-hidden="true"></span>
           <span class="zone zone-name" aria-hidden="true"></span>
@@ -627,15 +580,15 @@
           <h4 data-i18n="howtoSymsTitle">Los 9 símbolos — qué significa cada uno</h4>
           <p class="syms-note" data-i18n="howtoSymsNote">El símbolo va teñido del color del tipo de la carta. Esto es lo que anuncia cada figura:</p>
           <ul class="sym-list">
-            <li class="sym-item"><img src="img06.png" data-i18n-alt="symAttackAlt" alt="Símbolo de la espada: Attack" width="240" height="240" loading="lazy" /><p><strong>Attack — <span data-i18n="symAttackName">Espada</span>.</strong> <span data-i18n="symAttackText">Atacar o destruir Héroes rivales.</span></p></li>
-            <li class="sym-item"><img src="img07.png" data-i18n-alt="symDefenseAlt" alt="Símbolo del escudo: Defense" width="240" height="240" loading="lazy" /><p><strong>Defense — <span data-i18n="symDefenseName">Escudo</span>.</strong> <span data-i18n="symDefenseText">Bloquear, proteger o resistir ataques.</span></p></li>
-            <li class="sym-item"><img src="img08.png" data-i18n-alt="symLoseAlt" alt="Símbolo de la carta rota: Perder" width="240" height="240" loading="lazy" /><p><strong><span data-i18n="symLoseName">Perder</span> — <span data-i18n="symLoseFigure">Carta rota</span>.</strong> <span data-i18n="symLoseText">Pierdes una carta o haces perder una carta.</span></p></li>
-            <li class="sym-item"><img src="img09.png" data-i18n-alt="symRestrictAlt" alt="Símbolo de restringido: Restriction" width="240" height="240" loading="lazy" /><p><strong>Restriction — <span data-i18n="symRestrictName">Restringido</span>.</strong> <span data-i18n="symRestrictText">Impedir que un jugador realice una acción, cancelar.</span></p></li>
-            <li class="sym-item"><img src="img10.png" data-i18n-alt="symVisionAlt" alt="Símbolo del ojo: Vision" width="240" height="240" loading="lazy" /><p><strong>Vision — <span data-i18n="symVisionName">Ojo</span>.</strong> <span data-i18n="symVisionText">Mirar o revelar cartas.</span></p></li>
-            <li class="sym-item"><img src="img11.png" data-i18n-alt="symRecoveryAlt" alt="Símbolo del signo de más: Recovery" width="240" height="240" loading="lazy" /><p><strong>Recovery — <span data-i18n="symRecoveryName">Signo de más</span>.</strong> <span data-i18n="symRecoveryText">Obtener, robar o recuperar Héroes y cartas.</span></p></li>
-            <li class="sym-item"><img src="img12.png" data-i18n-alt="symManualAlt" alt="Símbolo del libro: Manual" width="240" height="240" loading="lazy" /><p><strong>Manual — <span data-i18n="symManualName">Libro</span>.</strong> <span data-i18n="symManualText">Leer el manual para información completa.</span></p></li>
-            <li class="sym-item"><img src="img13.png" data-i18n-alt="symSpecialAlt" alt="Símbolo de la estrella: Special" width="240" height="240" loading="lazy" /><p><strong>Special — <span data-i18n="symSpecialName">Estrella</span>.</strong> <span data-i18n="symSpecialText">Efectos especiales o legendarios.</span></p></li>
-            <li class="sym-item"><img src="img14.png" data-i18n-alt="symTrapAlt" alt="Símbolo de cuidado, un triángulo con signo de exclamación: Trap" width="240" height="240" loading="lazy" /><p><strong>Trap — <span data-i18n="symTrapName">Cuidado</span>.</strong> <span data-i18n="symTrapText">Trampas de activación inmediata.</span></p></li>
+            <li class="sym-item"><img src="img07.png" data-i18n-alt="symAttackAlt" alt="Símbolo de la espada: Attack" width="240" height="240" loading="lazy" /><p><strong>Attack — <span data-i18n="symAttackName">Espada</span>.</strong> <span data-i18n="symAttackText">Atacar o destruir Héroes rivales.</span></p></li>
+            <li class="sym-item"><img src="img08.png" data-i18n-alt="symDefenseAlt" alt="Símbolo del escudo: Defense" width="240" height="240" loading="lazy" /><p><strong>Defense — <span data-i18n="symDefenseName">Escudo</span>.</strong> <span data-i18n="symDefenseText">Bloquear, proteger o resistir ataques.</span></p></li>
+            <li class="sym-item"><img src="img09.png" data-i18n-alt="symLoseAlt" alt="Símbolo de la carta rota: Perder" width="240" height="240" loading="lazy" /><p><strong><span data-i18n="symLoseName">Perder</span> — <span data-i18n="symLoseFigure">Carta rota</span>.</strong> <span data-i18n="symLoseText">Pierdes una carta o haces perder una carta.</span></p></li>
+            <li class="sym-item"><img src="img10.png" data-i18n-alt="symRestrictAlt" alt="Símbolo de restringido: Restriction" width="240" height="240" loading="lazy" /><p><strong>Restriction — <span data-i18n="symRestrictName">Restringido</span>.</strong> <span data-i18n="symRestrictText">Impedir que un jugador realice una acción, cancelar.</span></p></li>
+            <li class="sym-item"><img src="img11.png" data-i18n-alt="symVisionAlt" alt="Símbolo del ojo: Vision" width="240" height="240" loading="lazy" /><p><strong>Vision — <span data-i18n="symVisionName">Ojo</span>.</strong> <span data-i18n="symVisionText">Mirar o revelar cartas.</span></p></li>
+            <li class="sym-item"><img src="img12.png" data-i18n-alt="symRecoveryAlt" alt="Símbolo del signo de más: Recovery" width="240" height="240" loading="lazy" /><p><strong>Recovery — <span data-i18n="symRecoveryName">Signo de más</span>.</strong> <span data-i18n="symRecoveryText">Obtener, robar o recuperar Héroes y cartas.</span></p></li>
+            <li class="sym-item"><img src="img13.png" data-i18n-alt="symManualAlt" alt="Símbolo del libro: Manual" width="240" height="240" loading="lazy" /><p><strong>Manual — <span data-i18n="symManualName">Libro</span>.</strong> <span data-i18n="symManualText">Leer el manual para información completa.</span></p></li>
+            <li class="sym-item"><img src="img14.png" data-i18n-alt="symSpecialAlt" alt="Símbolo de la estrella: Special" width="240" height="240" loading="lazy" /><p><strong>Special — <span data-i18n="symSpecialName">Estrella</span>.</strong> <span data-i18n="symSpecialText">Efectos especiales o legendarios.</span></p></li>
+            <li class="sym-item"><img src="img15.png" data-i18n-alt="symTrapAlt" alt="Símbolo de cuidado, un triángulo con signo de exclamación: Trap" width="240" height="240" loading="lazy" /><p><strong>Trap — <span data-i18n="symTrapName">Cuidado</span>.</strong> <span data-i18n="symTrapText">Trampas de activación inmediata.</span></p></li>
           </ul>
         </div>
       </div>
@@ -775,21 +728,21 @@
       <article class="poster-card">
         <h3><span class="lang-tag" style="background:var(--pink); color:#fff">ES</span> <span data-i18n="posterEsTitle">Póster en español</span></h3>
         <button class="poster-thumb" type="button" data-poster-open="es" data-i18n-aria="posterEsViewAria" aria-label="Ver el póster en español en grande">
-          <img src="img15.jpg" width="1600" height="2866" loading="lazy" decoding="async" data-i18n-alt="posterEsAlt" alt="Póster oficial de RABIA! en español: el manual completo en una hoja, con el ajolote navajero, las reglas, el sistema de Rabia y el glosario de las 90 cartas" />
+          <img src="img16.jpg" width="1600" height="2866" loading="lazy" decoding="async" data-i18n-alt="posterEsAlt" alt="Póster oficial de RABIA! en español: el manual completo en una hoja, con el ajolote navajero, las reglas, el sistema de Rabia y el glosario de las 90 cartas" />
         </button>
         <div class="poster-actions">
           <button class="btn primary" type="button" data-poster-open="es" data-i18n="btnViewFull">Ver en grande</button>
-          <a class="btn spend" href="img16.png" target="_blank" rel="noopener" data-i18n="btnPrint">Imprimir póster</a>
+          <a class="btn spend" href="img17.png" target="_blank" rel="noopener" data-i18n="btnPrint">Imprimir póster</a>
         </div>
       </article>
       <article class="poster-card">
         <h3><span class="lang-tag" style="background:var(--blue)">EN</span> <span data-i18n="posterEnTitle">Póster en inglés</span></h3>
         <button class="poster-thumb" type="button" data-poster-open="en" data-i18n-aria="posterEnViewAria" aria-label="Ver el póster en inglés en grande">
-          <img src="img17.jpg" width="1600" height="2866" loading="lazy" decoding="async" data-i18n-alt="posterEnAlt" alt="Póster oficial de RABIA! en inglés: el manual completo en una hoja, con los nombres de las cartas en inglés, las reglas, el sistema de Rage y el glosario de las 90 cartas" />
+          <img src="img18.jpg" width="1600" height="2866" loading="lazy" decoding="async" data-i18n-alt="posterEnAlt" alt="Póster oficial de RABIA! en inglés: el manual completo en una hoja, con los nombres de las cartas en inglés, las reglas, el sistema de Rage y el glosario de las 90 cartas" />
         </button>
         <div class="poster-actions">
           <button class="btn primary" type="button" data-poster-open="en" data-i18n="btnViewFull2">Ver en grande</button>
-          <a class="btn spend" href="img18.png" target="_blank" rel="noopener" data-i18n="btnPrint2">Imprimir póster</a>
+          <a class="btn spend" href="img19.png" target="_blank" rel="noopener" data-i18n="btnPrint2">Imprimir póster</a>
         </div>
       </article>
     </div>
@@ -806,19 +759,19 @@
 <div class="lightbox" id="posterLightbox" role="dialog" aria-modal="true" aria-labelledby="lbTitle" hidden>
   <div class="lightbox-bar">
     <p class="lb-title" id="lbTitle">Póster oficial</p>
-    <a class="btn spend" id="lbPrint" href="img16.png" target="_blank" rel="noopener" data-i18n="btnPrintLb">Imprimir póster</a>
+    <a class="btn spend" id="lbPrint" href="img17.png" target="_blank" rel="noopener" data-i18n="btnPrintLb">Imprimir póster</a>
     <button class="btn lb-close-btn" type="button" id="lbClose" data-i18n="btnCloseLb">Cerrar ✕</button>
     <p class="lb-hint" data-i18n="lbHint">Para salir: toca «Cerrar ✕», toca fuera de la imagen o usa la tecla Esc.</p>
   </div>
   <div class="lightbox-scroll">
-    <img id="lbImg" src="img15.jpg" alt="Póster oficial de RABIA! en español" />
+    <img id="lbImg" src="img16.jpg" alt="Póster oficial de RABIA! en español" />
   </div>
 </div>
 
 <!-- Al imprimir la página, salen solo los dos pósteres, uno por hoja -->
 <div id="printArea" aria-hidden="true">
-  <img src="img16.png" alt="" />
-  <img src="img18.png" alt="" />
+  <img src="img17.png" alt="" />
+  <img src="img19.png" alt="" />
 </div>
 
 <script>
@@ -875,10 +828,11 @@
       r1Lvl: "Nivel 1", r1Text: "Roba <strong style=\"color:#fff\">2 cartas</strong>. El coraje leve también ayuda.",
       r2Lvl: "Nivel 2", r2Text: "Destruye <strong style=\"color:#fff\">1 Héroe rival</strong>.", tagImparable: "Imparable",
       r3Lvl: "Nivel 3", r3Text: "Revive <strong style=\"color:#fff\">1 Héroe del Basurero</strong> a tu mesa y roba <strong style=\"color:#fff\">2 cartas</strong>. La venganza completa.",
-      simAria: "Simulador del Medidor de Rabia",
-      simTitle: "Prueba el Medidor",
-      simSub: "Toca los botones como si estuvieras en la mesa: pierde, llora poquito, acumula y cobra. Mira cómo sube — y cómo se gasta — tu Rabia.",
-      btnGain: "Destruyeron a mi Héroe (+1 Rabia)", btnSpend: "Gastar mi Rabia", btnReset: "Reiniciar",
+      meterQrAria: "Medidor de Rabia digital",
+      meterQrTitle: "Medidor de Rabia digital",
+      meterQrSub: "Escanea el código y úsalo en tu celular durante la partida. Cada jugador abre el suyo.",
+      meterQrAlt: "Código QR con estilo RABIA! y el ojo integrado en los módulos, con el letrero RAGE METER, que lleva al Medidor de Rabia digital",
+      meterQrBtn: "Abrir el Medidor de Rabia",
       s4Title: "Términos importantes",
       s4Intro: "Cuatro palabras que deciden partidas. Apréndetelas antes de discutir con la mesa, porque el que no sabe, pierde… y encima le echan carrilla toda la noche.",
       term1Name: "Ataque Básico",
@@ -1004,34 +958,7 @@
       btnPrintLb: "Imprimir póster", btnCloseLb: "Cerrar ✕",
       lbHint: "Para salir: toca «Cerrar ✕», toca fuera de la imagen o usa la tecla Esc.",
       lbTitleEs: "Póster oficial — Español", lbTitleEn: "Póster oficial — Inglés",
-      posterNote: "Tip de mesa: «Imprimir póster» abre la imagen sola, en grande, para imprimirla o guardarla desde ahí, en hoja completa y sin márgenes si tu impresora lo permite. El póster en inglés conserva los nombres de las cartas en inglés, tal como se diseñó.",
-      simStatus: [
-        "Nivel 0 — tranquilo… por ahora. Respira, que esto apenas empieza.",
-        "Nivel 1 — Mal de Ojo listo: roba 2 cartas. Ya se te nota el coraje.",
-        "Nivel 2 — Un Levantón listo: destruye 1 Héroe rival. ¡Imparable, como tu mal humor!",
-        "Nivel 3 — ¡RABIA MÁXIMA! Sana, Sana, Colita de Rana: revive 1 Héroe y roba 2 cartas. Agárrense."
-      ],
-      simArtAlt: [
-        "",
-        "Nivel 1 de Rabia: el ojo turquesa en graffiti neón, con el texto LEVEL 1",
-        "Nivel 2 de Rabia: el puño cerrado decorado con flores en graffiti neón, con el texto LEVEL 2",
-        "Nivel 3 de Rabia: la cola larga amarilla enrollada en espiral en graffiti neón, con el texto LEVEL 3"
-      ],
-      simArtCap: [
-        "Nivel 0 — sin marca",
-        "Nivel 1 · El ojo — Mal de Ojo",
-        "Nivel 2 · El puño — Un Levantón",
-        "Nivel 3 · La cola larga — Sana, Sana, Colita de Rana"
-      ],
-      simArtEmpty: "Sin marca todavía: en Nivel 0 el muro está limpio y tú, tranquilo.",
-      simGainMax: "Tu Héroe cayó al Basurero y la Rabia llegó al máximo. Nivel 3: si lo gastas, revives un Héroe y robas 2 cartas. A cobrar, que para eso lloraste.",
-      simGain: "Tu Héroe fue destruido y enviado al Basurero: +1 Rabia. Vas en Nivel {n} y ya se te está subiendo el coraje a la cara.",
-      simSpend: [
-        "",
-        "Gastaste tu Rabia en Mal de Ojo: robaste 2 cartas. El Medidor vuelve a Nivel 0, zen otra vez.",
-        "¡UN LEVANTÓN! Destruiste 1 Héroe rival y nadie pudo cancelarlo. El Medidor vuelve a Nivel 0. Ni modo, compa.",
-        "SANA, SANA, COLITA DE RANA: reviviste 1 Héroe del Basurero a tu mesa y robaste 2 cartas. El Medidor vuelve a Nivel 0. Venganza servida."
-      ]
+      posterNote: "Tip de mesa: «Imprimir póster» abre la imagen sola, en grande, para imprimirla o guardarla desde ahí, en hoja completa y sin márgenes si tu impresora lo permite. El póster en inglés conserva los nombres de las cartas en inglés, tal como se diseñó."
     },
     en: {
       docTitle: "RABIA! Official Manual",
@@ -1081,10 +1008,11 @@
       r1Lvl: "Level 1", r1Text: "Draw <strong style=\"color:#fff\">2 cards</strong>. Even mild fury helps.",
       r2Lvl: "Level 2", r2Text: "Destroy <strong style=\"color:#fff\">1 rival Hero</strong>.", tagImparable: "Unstoppable",
       r3Lvl: "Level 3", r3Text: "Revive <strong style=\"color:#fff\">1 Hero from El Basurero</strong> to your board and draw <strong style=\"color:#fff\">2 cards</strong>. Sweet, full revenge.",
-      simAria: "Rage Meter simulator",
-      simTitle: "Try the Meter",
-      simSub: "Tap the buttons like you're at the table: lose, pout a little, build it up and cash it in. Watch your Rage build up — and get spent.",
-      btnGain: "My Hero got destroyed (+1 Rage)", btnSpend: "Spend my Rage", btnReset: "Reset",
+      meterQrAria: "Digital Rage Meter",
+      meterQrTitle: "Digital Rage Meter",
+      meterQrSub: "Scan the code and use it on your phone during the game. Each player opens their own.",
+      meterQrAlt: "RABIA!-styled QR code with the eye built into its modules and a RAGE METER sign, linking to the digital Rage Meter",
+      meterQrBtn: "Open the Rage Meter",
       s4Title: "Key terms",
       s4Intro: "Four words that decide games. Learn them before arguing with the table — whoever doesn't know them loses, and gets teased all night on top of it.",
       term1Name: "Basic Attack",
@@ -1210,42 +1138,13 @@
       btnPrintLb: "Print poster", btnCloseLb: "Close ✕",
       lbHint: "To exit: tap “Close ✕”, tap outside the image, or press the Esc key.",
       lbTitleEs: "Official poster — Spanish", lbTitleEn: "Official poster — English",
-      posterNote: "Table tip: “Print poster” opens the image on its own, full size, so you can print or save it from there — full-page, borderless if your printer allows it. The English poster keeps the card names in English, just as it was designed.",
-      simStatus: [
-        "Level 0 — calm… for now. Breathe, this is just getting started.",
-        "Level 1 — Mal de Ojo ready: draw 2 cards. The fury is showing.",
-        "Level 2 — Un Levantón ready: destroy 1 rival Hero. Unstoppable, just like your bad mood!",
-        "Level 3 — MAXIMUM RAGE! Sana, Sana, Colita de Rana: revive 1 Hero and draw 2 cards. Hold on tight."
-      ],
-      simArtAlt: [
-        "",
-        "Rage Level 1: the turquoise eye in neon graffiti, with the text LEVEL 1",
-        "Rage Level 2: the clenched fist decorated with flowers in neon graffiti, with the text LEVEL 2",
-        "Rage Level 3: the long yellow tail curled into a spiral in neon graffiti, with the text LEVEL 3"
-      ],
-      simArtCap: [
-        "Level 0 — no mark yet",
-        "Level 1 · The eye — Mal de Ojo",
-        "Level 2 · The fist — Un Levantón",
-        "Level 3 · The long tail — Sana, Sana, Colita de Rana"
-      ],
-      simArtEmpty: "No mark yet: at Level 0 the wall is clean and so are you — calm.",
-      simGainMax: "Your Hero fell into El Basurero and your Rage maxed out. Level 3: spend it to revive a Hero and draw 2 cards. Time to collect — that's what the tears were for.",
-      simGain: "Your Hero was destroyed and sent to El Basurero: +1 Rage. You're at Level {n} and the fury is written all over your face.",
-      simSpend: [
-        "",
-        "You spent your Rage on Mal de Ojo: you drew 2 cards. The Meter returns to Level 0, zen again.",
-        "UN LEVANTÓN! You destroyed 1 rival Hero and nobody could cancel it. The Meter returns to Level 0. Sorry, buddy.",
-        "SANA, SANA, COLITA DE RANA: you revived 1 Hero from El Basurero to your board and drew 2 cards. The Meter returns to Level 0. Revenge, served."
-      ]
+      posterNote: "Table tip: “Print poster” opens the image on its own, full size, so you can print or save it from there — full-page, borderless if your printer allows it. The English poster keeps the card names in English, just as it was designed."
     }
   };
 
   var lang = "es";
-  var simLevel = 0;
-  var lastSimMsg = null; /* {kind:'status'|'gain'|'spend', level:n} */
 
-  var textKeys = ["kicker","heroSub","chipPlayers","chipPlayersVal","chipDuration","chipDeck","chipDeckVal","chipWin","chipWinVal","objLab","objText","posterCap","nav1","nav2","nav3","nav4","nav5","nav6","s1Title","s1Intro","s1Card1Title","s1L1","s1L2","s1L3","s1Trap","s1Card2Title","s1MeterIntro","s1Lvl0","s1Lvl12","s1Lvl3","s1Start","s2Title","s2Intro","ph1Name","ph1Text","ph2Name","ph2Text","ph3Name","ph3Text","ph4Name","ph4Text","s3Title","s3Intro","s3CardTitle","s3L1","s3L2","s3L3","r1Lvl","r1Text","r2Lvl","r2Text","tagImparable","r3Lvl","r3Text","simTitle","simSub","btnGain","btnSpend","btnReset","s4Title","s4Intro","term1Name","term1Text","term2Name","term2Text","term3Name","term3Text","term4Name","term4Text","s5Title","s5Intro","filterAll","filterHeroe","filterAmenaza","filterLegendario","filterApoyo","filterTrampa","howtoTitle","howtoIntro","howto1Title","howto1Text","howto2Title","howto2Text","howto3Title","howto3Text","howto4Title","howto4Text","howtoKeyTitle","keyHeroe","keyAmenaza","keyApoyo","keyLegendario","keyTrampa","howtoSymsTitle","howtoSymsNote","symAttackName","symAttackText","symDefenseName","symDefenseText","symLoseName","symLoseFigure","symLoseText","symRestrictName","symRestrictText","symVisionName","symVisionText","symRecoveryName","symRecoveryText","symManualName","symManualText","symSpecialName","symSpecialText","symTrapName","symTrapText","typeHeroe","count28","ruleHeroe","cardAjolote","cardCacomixtle","namePterodactilo","cardQuetzal","cardCalupoh","cardXolo","cardJaguar","cardNahual","typeAmenaza","count30","ruleAmenaza","cardJauria","cardPolilla","cardMordida","cardPolitico","cardEmpacho","cardChupacabras","typeLegendario","count3","ruleLegendario","cardCipactli","cardQuetzalcoatl","cardChancla","typeApoyo","count21","ruleApoyo","cardAhorita","cardReflejo","cardRosa","cardFuga","typeTrampa","count8","ruleTrampa","cardIntercambio","cardMoctezuma","cardCruda","cardSueno","noResults","s6Title","s6Intro","faq61Q","faq61A","faq62Q","faq62A","faq63Q","faq63A","faq64Q","faq64A","faq65Q","faq65A","faq66Q","faq66A","faq67Q","faq67A","faq68Q","faq68A","faq69Q","faq69A","faq610Q","faq610A","slogan1","slogan2","footerLine","nav7","s7Title","s7Intro","posterEsTitle","posterEnTitle","btnViewFull","btnViewFull2","btnPrint","btnPrint2","btnPrintLb","btnCloseLb","lbHint","posterNote"];
+  var textKeys = ["kicker","heroSub","chipPlayers","chipPlayersVal","chipDuration","chipDeck","chipDeckVal","chipWin","chipWinVal","objLab","objText","posterCap","nav1","nav2","nav3","nav4","nav5","nav6","s1Title","s1Intro","s1Card1Title","s1L1","s1L2","s1L3","s1Trap","s1Card2Title","s1MeterIntro","s1Lvl0","s1Lvl12","s1Lvl3","s1Start","s2Title","s2Intro","ph1Name","ph1Text","ph2Name","ph2Text","ph3Name","ph3Text","ph4Name","ph4Text","s3Title","s3Intro","s3CardTitle","s3L1","s3L2","s3L3","r1Lvl","r1Text","r2Lvl","r2Text","tagImparable","r3Lvl","r3Text","meterQrTitle","meterQrSub","meterQrBtn","s4Title","s4Intro","term1Name","term1Text","term2Name","term2Text","term3Name","term3Text","term4Name","term4Text","s5Title","s5Intro","filterAll","filterHeroe","filterAmenaza","filterLegendario","filterApoyo","filterTrampa","howtoTitle","howtoIntro","howto1Title","howto1Text","howto2Title","howto2Text","howto3Title","howto3Text","howto4Title","howto4Text","howtoKeyTitle","keyHeroe","keyAmenaza","keyApoyo","keyLegendario","keyTrampa","howtoSymsTitle","howtoSymsNote","symAttackName","symAttackText","symDefenseName","symDefenseText","symLoseName","symLoseFigure","symLoseText","symRestrictName","symRestrictText","symVisionName","symVisionText","symRecoveryName","symRecoveryText","symManualName","symManualText","symSpecialName","symSpecialText","symTrapName","symTrapText","typeHeroe","count28","ruleHeroe","cardAjolote","cardCacomixtle","namePterodactilo","cardQuetzal","cardCalupoh","cardXolo","cardJaguar","cardNahual","typeAmenaza","count30","ruleAmenaza","cardJauria","cardPolilla","cardMordida","cardPolitico","cardEmpacho","cardChupacabras","typeLegendario","count3","ruleLegendario","cardCipactli","cardQuetzalcoatl","cardChancla","typeApoyo","count21","ruleApoyo","cardAhorita","cardReflejo","cardRosa","cardFuga","typeTrampa","count8","ruleTrampa","cardIntercambio","cardMoctezuma","cardCruda","cardSueno","noResults","s6Title","s6Intro","faq61Q","faq61A","faq62Q","faq62A","faq63Q","faq63A","faq64Q","faq64A","faq65Q","faq65A","faq66Q","faq66A","faq67Q","faq67A","faq68Q","faq68A","faq69Q","faq69A","faq610Q","faq610A","slogan1","slogan2","footerLine","nav7","s7Title","s7Intro","posterEsTitle","posterEnTitle","btnViewFull","btnViewFull2","btnPrint","btnPrint2","btnPrintLb","btnCloseLb","lbHint","posterNote"];
 
   var textEls = {}, altEls = {}, ariaEls = {}, phEls = {};
   Array.prototype.forEach.call(document.querySelectorAll("[data-i18n]"), function(el){ textEls[el.getAttribute("data-i18n")] = el; });
@@ -1253,84 +1152,11 @@
   Array.prototype.forEach.call(document.querySelectorAll("[data-i18n-aria]"), function(el){ ariaEls[el.getAttribute("data-i18n-aria")] = el; });
   Array.prototype.forEach.call(document.querySelectorAll("[data-i18n-ph]"), function(el){ phEls[el.getAttribute("data-i18n-ph")] = el; });
 
-  /* ---------- Simulador de Rabia ---------- */
-  var eyes = [document.getElementById('eye1'), document.getElementById('eye2'), document.getElementById('eye3')];
-  var status = document.getElementById('simStatus');
-  var msg = document.getElementById('simMsg');
-  var btnGain = document.getElementById('btnGain');
-  var btnSpend = document.getElementById('btnSpend');
-  var btnReset = document.getElementById('btnReset');
-  var simArt = document.getElementById('simArt');
-  var simArtImg = document.getElementById('simArtImg');
-  var simArtEmpty = document.getElementById('simArtEmpty');
-  var simArtEmptyText = document.getElementById('simArtEmptyText');
-  var simArtCap = document.getElementById('simArtCap');
-  var simArtCapText = document.getElementById('simArtCapText');
-  var SIM_ART_SRC = [null, 'img02.jpg', 'img03.jpg', 'img04.jpg'];
-
-  function simMsgText(){
-    var d = I18N[lang];
-    if(!lastSimMsg) return "";
-    if(lastSimMsg.kind === 'gain'){
-      return lastSimMsg.level === 3 ? d.simGainMax : d.simGain.replace("{n}", lastSimMsg.level);
-    }
-    if(lastSimMsg.kind === 'spend') return d.simSpend[lastSimMsg.level];
-    return "";
-  }
-  function renderSim(){
-    eyes.forEach(function(eye, i){
-      eye.className = 'sim-eye' + (simLevel > i ? ' on' + simLevel : '');
-    });
-    /* Imagen del nivel actual: ojo (1), puño (2) o cola larga (3) */
-    var dArt = I18N[lang];
-    if(simArt && simArtImg && simArtEmpty){
-      simArt.className = 'sim-art' + (simLevel > 0 ? ' r' + simLevel : '');
-      if(simLevel === 0){
-        simArtImg.hidden = true;
-        simArtEmpty.style.display = '';
-        if(simArtEmptyText && dArt.simArtEmpty) simArtEmptyText.textContent = dArt.simArtEmpty;
-      } else {
-        simArtImg.src = SIM_ART_SRC[simLevel];
-        simArtImg.alt = dArt.simArtAlt ? dArt.simArtAlt[simLevel] : '';
-        simArtImg.hidden = false;
-        simArtEmpty.style.display = 'none';
-      }
-      if(simArtCap && simArtCapText && dArt.simArtCap){
-        simArtCap.className = 'sim-art-cap' + (simLevel > 0 ? ' c' + simLevel : '');
-        simArtCapText.textContent = dArt.simArtCap[simLevel];
-      }
-    }
-    status.textContent = I18N[lang].simStatus[simLevel];
-    btnGain.disabled = simLevel >= 3;
-    btnSpend.disabled = simLevel === 0;
-    var t = simMsgText();
-    msg.textContent = t;
-    msg.classList.toggle('box', !!t);
-  }
-  btnGain.addEventListener('click', function(){
-    if(simLevel < 3){
-      simLevel++;
-      lastSimMsg = {kind:'gain', level: simLevel};
-      renderSim();
-    }
-  });
-  btnSpend.addEventListener('click', function(){
-    if(simLevel === 0) return;
-    lastSimMsg = {kind:'spend', level: simLevel};
-    simLevel = 0;
-    renderSim();
-  });
-  btnReset.addEventListener('click', function(){
-    simLevel = 0;
-    lastSimMsg = null;
-    renderSim();
-  });
-
   /* ---------- Idioma / Language ---------- */
   var btnEs = document.getElementById('langEs');
   var btnEn = document.getElementById('langEn');
   function setLang(next){
-    if(next === lang && document.documentElement.lang === next) { renderSim(); return; }
+    if(next === lang && document.documentElement.lang === next) { return; }
     lang = next;
     var d = I18N[lang];
     document.documentElement.lang = lang;
@@ -1346,12 +1172,10 @@
       lbTitle.textContent = d[cur.titleKey];
       lbImg.alt = d[cur.altKey];
     }
-    renderSim();
     applyFilter();
   }
   btnEs.addEventListener('click', function(){ setLang('es'); });
   btnEn.addEventListener('click', function(){ setLang('en'); });
-  renderSim();
 
   /* ---------- Filtro del glosario ---------- */
   var filterBtns = Array.prototype.slice.call(document.querySelectorAll('.filter-btn'));
@@ -1392,8 +1216,8 @@
 
   /* ---------- Pósteres: visor grande en página e impresión ---------- */
   var POSTERS = {
-    es: { src: 'img15.jpg', full: 'img16.png', titleKey: 'lbTitleEs', altKey: 'posterEsAlt' },
-    en: { src: 'img17.jpg', full: 'img18.png', titleKey: 'lbTitleEn', altKey: 'posterEnAlt' }
+    es: { src: 'img16.jpg', full: 'img17.png', titleKey: 'lbTitleEs', altKey: 'posterEsAlt' },
+    en: { src: 'img18.jpg', full: 'img19.png', titleKey: 'lbTitleEn', altKey: 'posterEnAlt' }
   };
   var lightbox = document.getElementById('posterLightbox');
   var lbImg = document.getElementById('lbImg');
